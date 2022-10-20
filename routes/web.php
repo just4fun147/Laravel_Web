@@ -14,5 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
+});
+
+Route::get('/index', function () {
+    return view('index');
+});
+
+
+Route::get('/profile', function () {
+    return view('profile', [
+        "name" => "Paulus Pandu Windit"
+    ]);
+});
+
+Route::get('/feedback', function () {
+    return view('feedback');
 });
