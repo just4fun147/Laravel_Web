@@ -1,6 +1,15 @@
+
 <footer>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link"> &copy Paulus Pandu Windito 2022</a> 
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"> time </a> 
+                </li>
+            </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="https://www.linkedin.com/in/pandu-windito-14b064254/" target="_blank"> LinkedIn </a> 
