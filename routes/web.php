@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('landing');
+    return view('landing',[
+        "title" => "Home"
+    ]);
 });
 
 Route::get('/index', function () {
@@ -22,12 +24,15 @@ Route::get('/index', function () {
 });
 
 
-Route::get('/profile', function () {
-    return view('profile', [
-        "name" => "Paulus Pandu Windit"
+Route::get('/about', function () {
+    return view('about', [
+        "title" => "About",
+        "name" => "Paulus Pandu Windito"
     ]);
 });
 
 Route::get('/feedback', function () {
-    return view('feedback');
+    return view('feedback',[
+        "title" => "Feedback"
+    ]);
 });
