@@ -1,8 +1,12 @@
 body{ min-height:100vh; margin:0; position:relative; }
 header{ min-height:50px; background:lightcyan; }
 
+.bg{
+  background-color: #1d1d1c;
+}
 * { 
     font-family: "Poppins"; 
+    color: white;
 }
 
 /* Trick: */
@@ -21,4 +25,99 @@ footer {
   bottom: 0;
   width: 100%;
   height: 50px;
+}
+
+/* home */
+p.first{
+  font-size: 180px;
+  font-family: "Helvetica";
+  margin-top: 100px;
+  line-height: 175px;
+}
+p.second{
+  font-size: 45px;
+  font-family: "Helvetica";
+  margin-right: 20px;
+  line-height: 50px;
+  
+}
+p.secondR{
+  font-size: 50px;
+  font-family: "Helvetica";
+  margin-top: 400px;
+  margin-right: 20px;
+  letter-spacing: 1px;
+}
+p.third{
+  font-size: 20px;
+}
+p.thirdR{
+  font-size: 50px;
+  font-family: "Helvetica";
+  margin-right: 20px;
+  letter-spacing: 1px;
+}
+
+
+.center{
+  border:1px solid gray; 
+  overflow:hidden;
+  display:inline-block;
+}
+.left{
+  height: 600px;
+  width:calc(50% - 50px); /** 20px = sum of margin left and right */
+  float:left;
+  padding:10px;
+  margin-left: 50px;
+  box-sizing:border-box;
+}   
+.right{
+  text-align: right;
+  height: 600px;
+  width:50%;
+  background-color:#40531b;
+  float:left;
+  padding:10px;
+  line-height: 35px;
+}
+
+/* animasi */
+.main{
+  animation: fadeInAnimation ease 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.main .left {
+  animation: fadeInAnimation ease 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.main .right {
+  animation: fadeInAnimation ease 10s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.header {
+  animation: fadeInAnimation ease 15s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.footer {
+  animation: fadeInAnimation ease 15s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
 }

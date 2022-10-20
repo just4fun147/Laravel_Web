@@ -14,18 +14,25 @@
         </script>
         <script src=
     "https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
-        </script>    
+        </script>
+        <script src=
+        "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+        <script src=
+        "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+        </script>
+        </script>   
     <link rel="stylesheet" href="/css/style.css">
 </head>
-  <body>
-    @include('partials.navbar')
-    <div class="container mt-4">
-        @yield('container')
+  <body class="bg">
+    <div class="header">
+      @include('partials.navbar')
     </div>
-
-    
-    
+    <div class="main">
+      @yield('container')
+    </div>
+    <div class="footer">
+      @include('partials.footer')
+    </div>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </body>
-  @include('partials.footer')
 </html>

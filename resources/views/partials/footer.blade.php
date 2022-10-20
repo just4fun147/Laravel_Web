@@ -1,6 +1,6 @@
 
 <footer>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-#1d1d1c">
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav">
                 <li class="nav-item">
