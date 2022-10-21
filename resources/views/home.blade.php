@@ -31,7 +31,7 @@
                 <h2 class="mb-0 mb-01">My Dream Car</h2>
                 <h5 class="mb-0">Hyundai Ioniq 5</h5>
                 <p class="mb-0">the first vehicle built on Hyundai’s new Electric-Global Modular Platform (E-GMP). This dedicated battery electric vehicle platform enables faster charging, increased driving range, more interior space, and better handling. The battery pack’s position within the wheelbase ensures ideal weight distribution between the front and rear and a low center of gravity for improved handling performance.</p>
-                <a class="mb-0" href="https://www.hyundai.com/worldwide/en/eco/ioniq5/highlights">More...</a>
+                <a class="mb-0" href="https://www.hyundai.com/worldwide/en/eco/ioniq5/highlights" target="_blank">More...</a>
               </div>
             </div>
           </div>
@@ -42,11 +42,14 @@
           <div class="col">
             <div class="elem">
               <div class="zoom">
-                <img
+                <a href="https://www.hyundai.com/worldwide/en/eco/ioniq5/highlights" target="_blank">
+                  <img
                   src="/img/ioniq5.jpg"
                   class="img-fluid"
                   alt="Responsive image"
-                />
+                  />
+              </a>
+                
               </div>
             </div>
           </div>
