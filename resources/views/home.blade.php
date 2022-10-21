@@ -2,10 +2,15 @@
 
 @section('container')
     <div class="left">
+      <div class="top">
         <p class="first">Hai! :)</p>
         <p class="second"><b>WELCOME TO MY WEBSITE</b></p>
+      </div>
+      <div class="bot">
         <p class="third">This website is developed with laravel, bootstrap, php, html, css, and javascript.</p>
         <p class="third">By <b>Paulus Pandu Windito-2022</b></p>
+      </div>
+        
         <p><i class="arrow down"></i></p>
     </div>
 
@@ -27,8 +32,6 @@
                 <h5 class="mb-0">Hyundai Ioniq 5</h5>
                 <p class="mb-0">the first vehicle built on Hyundai’s new Electric-Global Modular Platform (E-GMP). This dedicated battery electric vehicle platform enables faster charging, increased driving range, more interior space, and better handling. The battery pack’s position within the wheelbase ensures ideal weight distribution between the front and rear and a low center of gravity for improved handling performance.</p>
                 <a class="mb-0" href="https://www.hyundai.com/worldwide/en/eco/ioniq5/highlights">More...</a>
-                <p class="block"></p>
-                <p class="block"></p>
               </div>
             </div>
           </div>
@@ -38,7 +41,7 @@
         <div class="row no-gutters">
           <div class="col">
             <div class="elem">
-              <div>
+              <div class="zoom">
                 <img
                   src="/img/ioniq5.jpg"
                   class="img-fluid"

@@ -21,6 +21,12 @@ html {
   font-size: 30px;
 }
 
+.block{
+  opacity: 0;
+  margin-bottom: 100px;
+}
+
+
 /* Trick: */
 body {
   width: 100%;
@@ -103,42 +109,79 @@ p.thirdR{
 }
 
 /* animasi */
-.main{
-  animation: fadeInAnimation ease 5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+.main .left .top {
+  animation-name: slideUp;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  display: block;
 }
-
-.main .left {
-  animation: fadeInAnimation ease 5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-
-.main .right {
+.main .left .bot{
   animation: fadeInAnimation ease 10s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
 
-.header {
-  animation: fadeInAnimation ease 15s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+.main .right {
+    animation-name: slideUp2;
+    animation-duration: 3s;
+    animation-timing-function: ease-in;
+    display: block;
 }
 
-.footer {
-  animation: fadeInAnimation ease 15s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+.header {
+  animation: slideDown;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+  display: block;
 }
 
 @keyframes fadeInAnimation {
   0% {
       opacity: 0;
   }
+  
   100% {
       opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0%,
+  50% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  
+  }
+}
+
+@keyframes slideDown {
+  0%,
+  50% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  
+  }
+}
+@keyframes slideUp2 {
+  0%,
+  50% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  
   }
 }
 
@@ -201,8 +244,70 @@ main.container-fluid {
 }
 
 
-.block{
-  opacity: 0;
-  margin-bottom: 100px;
+.zoom {
+  padding: 50px;
+  transition: transform .2ms; /* Animation */
+  margin: 0 auto;
 }
 
+.zoom:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+/*About */
+
+#title{
+  text-transform: uppercase;
+  font-size: 20px;
+  line-height: 1px;
+  opacity: 80%;
+}
+
+p.first2{
+  font-size: 100px;
+  font-family: "Poppins";
+  margin-top: 40px;
+  line-height: 80px;
+  text-transform: uppercase;
+}
+.left2{
+  height: 500px;
+  width:calc(50% - 50px); /** 20px = sum of margin left and right */
+}
+p.third2{
+  font-size: 20px;
+  font-family: "Poppins";
+  letter-spacing: 1px;
+  text-align: justify;
+}
+
+.right2{
+  text-align: left;
+  height: 670px;
+  width:50%;
+  float:left;
+  margin-top: 0;
+}
+
+.images{
+  opacity: 0;
+}
+
+.run{
+  animation-name: slideUp2;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+  opacity: 1;
+}
+
+.main .left2 .top {
+  animation-name: slideUp;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  display: block;
+}
+.main .left2 .bot{
+  animation: fadeInAnimation ease 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}

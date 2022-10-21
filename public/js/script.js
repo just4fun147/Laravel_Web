@@ -5,7 +5,15 @@ window.addEventListener('scroll', ()=>{
 
     if(contentPosition < screenPosition){
         content.classList.add('active');
-    }else{
-        content.classList.remove('active');
+    }
+})
+
+window.addEventListener('scroll', ()=>{
+    let content = document.querySelector('.images');
+    let contentPosition = content.getBoundingClientRect().top;
+    let screenPosition = window.innerHeight;
+
+    if(contentPosition < screenPosition){
+        content.classList.add('run');
     }
 })

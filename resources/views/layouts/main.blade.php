@@ -30,6 +30,7 @@
     <div class="main">
       @yield('container')
     </div>
+    <p class="block">aaa</p>
     <div class="footer">
       @include('partials.footer')
     </div>    
