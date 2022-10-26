@@ -56,6 +56,50 @@
         </div>
     </div>
 </section>
+<div>
+  <div class="rectangle"></div>
+      <div class="elem">
+        <div class="text-block">
+          <h2 class="mb-0 mb-01">Golden State Warriors</h2>
+          <h5 class="mb-0">Basketball Team</h5>
+          <p class="mb-0">The Golden State Warriors are an American professional basketball team based in San Francisco. The Warriors compete in the National Basketball Association, as a member of the league's Western Conference Pacific Division.</p>
+          <a class="mb-0" href="https://www.nba.com/warriors" target="_blank">More...</a>
+          <p class="block">a</p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="/img/gsw1.jpg" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="/img/gsw2.jpg" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="/img/gsw3.jpg" alt="Third slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="/img/gsw4.jpg" alt="Third slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="/img/gsw5.jpg" alt="Third slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="/img/gsw6.jpg" alt="Third slide">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
     
     
       </section>
