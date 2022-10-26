@@ -36,3 +36,9 @@ Route::get('/feedback', function () {
         "title" => "Feedback"
     ]);
 });
+
+Route::get('/giveFeedback', function () {
+    return view('feedback',[
+        "title" => "Feedback"
+    ]);
+});

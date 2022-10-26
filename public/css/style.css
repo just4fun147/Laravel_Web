@@ -312,3 +312,159 @@ p.third2{
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
+
+p.firstAbout{
+  font-size: 50px;
+  letter-spacing: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+p.secondAbout{
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+p.thirdAbout{
+  font-size: 20px;
+  text-transform: uppercase;
+
+}
+
+p.minor{
+  font-size: 20px;
+  opacity: 80%;
+}
+
+.left3{
+  height: fit-content;
+  width:calc(35% - 60px); /** 20px = sum of margin left and right */
+  float:left;
+  padding:10px;
+  margin-left: 50px;
+  box-sizing:border-box;
+  text-align: justify;
+}   
+.middle3{
+  text-align: justify;
+  height: fit-content;
+  width:30%;
+  float:left;
+  padding:10px;
+  margin-left: 20px;
+}
+.right3{
+  text-align: justify;
+  height: fit-content;
+  width:30%;
+  float:left;
+  padding:10px;
+  margin-left: 20px;
+}
+.right4{
+  text-align: justify;
+  height: 550px;
+  width:30%;
+  float:left;
+  padding:10px;
+  margin-left: 300px;
+  margin-top: 200px;
+}
+
+p.desc{
+  font-size: 20px;
+}
+
+
+
+.thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+.scrollbar {
+  width: 1px;
+  height: 720px;
+  background: #ccc;
+  display: block;
+  margin: 0 0 0 8px;
+}
+
+.thumb {
+  width: 1px;
+  position: absolute;
+  height: 0;
+  background: #000;
+}
+
+.slides {
+  grid-auto-flow: row;
+  gap: 1rem;
+  width:calc(70% - 60px);
+  height: 720px;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  float: left;
+  box-sizing:border-box;
+}
+
+
+.slides > div {
+  scroll-snap-align: start;
+}
+
+.slides img {
+  margin-left: 50px;
+  width: 750px;
+  margin-bottom: 10px;
+}
+
+.slides::-webkit-scrollbar {
+  display: none;
+}
+
+.rightSlides{
+  text-align: center;
+  float:left;
+  top: 0;
+  margin-left: 850px;
+  margin-top: 0;
+}
+
+.left4{
+  height: fit-content;
+  width:calc(20% - 60px); /** 20px = sum of margin left and right */
+  float:left;
+  padding:10px;
+  margin-left: 50px;
+  box-sizing:border-box;
+}  
+.right5{
+  text-align: justify;
+  height: 550px;
+  width:10%;
+  float:left;
+  padding:10px;
+  margin-left: 700px;
+  margin-top: 200px;
+}
+
+/*
+.sliding{
+  opacity: 0;
+}
+.go{
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  opacity: 1;
+}
+*/
+/* Feedback */
+#confirm{
+  background-color: #ff4e44;
+}
