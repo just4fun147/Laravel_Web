@@ -87,3 +87,4 @@ window.addEventListener('scroll', ()=>{
         content.classList.add('run2');
     }
 })
+

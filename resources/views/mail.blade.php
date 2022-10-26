@@ -7,7 +7,7 @@
     <title>Document</title> 
 </head> 
 <body> 
-    <h2>Selamat</h2> 
-    <p>Terima kasih {{ $content['body'] }} atas feedbacknya :)</p> 
+    <h2>Terima Kasih {{ $content['body'] }}</h2> 
+    <p>Kritik dan saran anda sangat berarti untuk saya.</p> 
 </body> 
 </html>

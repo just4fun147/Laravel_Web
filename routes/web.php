@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::resource('/feedback', \App\Http\Controllers\FeedbackController::class);
+Route::resource('/movie', \App\Http\Controllers\MovieController::class);
 Route::get('/', function () {
     return view('home',[
         "title" => "Home"
@@ -31,15 +32,4 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/feedback', function () {
-    return view('feedback',[
-        "title" => "Feedback"
-    ]);
-});
-
-Route::get('/giveFeedback', function () {
-    return view('feedback',[
-        "title" => "Feedback"
-    ]);
-});
 

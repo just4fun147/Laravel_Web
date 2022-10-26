@@ -36,10 +36,9 @@ class FeedbackController extends Controller
            Mail::to($request->email)->send(new FeedbackMail($content)); 
            //Redirect jika berhasil mengirim email 
             
-           return view('home',[
-            "title" => "Home"
-        ]);
-    }catch(Exception $e){  
+           return redirect('/');
+    }catch(Exception $e){ 
+        return redirect('/');  
         } 
      } 
 }
