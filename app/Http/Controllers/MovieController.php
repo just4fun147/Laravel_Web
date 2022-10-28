@@ -17,24 +17,43 @@ class MovieController extends Controller
      }
 
      public function create() { 
-        return view('movie.create'); 
+        return view('movie.create',[
+         "title" => "Add Movie"
+        ]); 
      }
      
      public function edit($id) { 
-        return view('movie.edit', ['id' => $id]); 
+        return view('movie.edit', [
+         'id' => $id,
+         'title' => "Edit Movie"
+      ])->with('message','Add Movie success'); 
      } 
 
      public function destroy($id) { 
         Movie::destroy($id);
-        return redirect()->route('movie.index');
+        return redirect()->route('movie.index')->with('message','Delete Movie success');
      } 
 
      public function store(Request $request) { 
         //Validasi Formulir 
-        $this->validate($request, [ 'judul' => 'required', 'name' => 'required', 'rating' => 'required' ]); 
+        try{
+         $this->validate($request, [ 'judul' => 'required', 'name' => 'required', 'rating' => 'required' ]); 
         //Fungsi Simpan Data ke dalam Database 
-        Movie::create([ 'judul' => $request->judul, 'name' => $request->name, 'content' => $request->rating ]); 
+        Movie::create([ 'judul' => $request->judul, 'name' => $request->name, 'rating' => $request->rating ]); 
             
-        return redirect()->route('movie.index');
-     } 
+        return redirect()->route('movie.index')->with('message','Add Movie success');
+        }catch(Exception $e){ 
+         return redirect('/')->with('error','Add Movie Fail');
+         } 
+     }
+     
+     public function update(Request $request, $id){
+      $this->validate($request, [ 'judul' => 'required', 'name' => 'required', 'rating' => 'required' ]);  
+      $temp = Movie::find($id);
+      $temp->judul = $request->judul;
+      $temp->name = $request->name;
+      $temp->rating = $request->rating;
+      $temp->save();
+      return redirect()->route('movie.index')->with('message','Edit Movie success');
+   }
 }

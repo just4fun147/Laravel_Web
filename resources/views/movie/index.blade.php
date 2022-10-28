@@ -6,13 +6,9 @@
             <div class="col-sm-6"> 
                 <h1 class="m-0">Movie</h1> 
             </div> 
-            <!-- /.col --> 
         </div> 
-        <!-- /.row --> 
     </div> 
-    <!-- /.container-fluid --> 
 </div> 
-<!-- /.content-header --> 
 <!-- Main content --> 
 <div class="content"> 
     <div class="container-fluid"> 
@@ -54,14 +50,11 @@
                             </table> 
                         </div> 
                     </div> 
-                    <!-- /.card-body --> 
-                </div> <!-- /.card --> 
+                </div> 
             </div> 
-            <!-- /.col-md-6 --> </div>
-  </div>
-  {{$movie->links()}}
+        </div>
+    </div>
+    {{$movie->links()}}
  </div> 
-
-
 
 @endsection
