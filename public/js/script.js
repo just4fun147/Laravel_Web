@@ -88,4 +88,13 @@ window.addEventListener('scroll', ()=>{
     }
 })
 
+function email(){
+  window.open('mailto:pauluswindito1@gmail.com');
+}
+
+function contact(){
+  window.open('/contact');
+}
+
+
 

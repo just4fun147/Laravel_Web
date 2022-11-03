@@ -7,6 +7,7 @@
         <p class="firstW"><b>My Creations</b></p>
         <p class="descs">Projects I've ever made. It's never been commercial,</p>
         <p class="descs"> but I'm trying to make it for practice.</p>
+        <p class="block">a</p>
         <div class="left5">
             <img src="img/web.png" alt="" width="500">
         </div>
@@ -56,7 +57,7 @@
         <p class="block">aa</p>
         <p class="block">aa</p>
         <p class="block">aa</p>
-        <p class="cont"><a class="ref" href="\contact">Contact Me>>></a></p>
+        <p class="cont" style="cursor: pointer;" onclick="contact()">Contact Me>>></p>
        </div>
     
 @endsection

@@ -118,6 +118,7 @@
             <!--<p class="thirdAbout"><a class="ref" href="/education" target="_blank"><u>Exploring</u></a></p> -->
             <p class="thirdAbout">Exploring</p>
             <p class="desc">Visit various places to learn culture and other perspectives to develop yourself. Indonesia with 1,340 tribes, 840 languages, and various cultures. There won't be enough time to explore everything</p>
+            <p class="block">a</p>
         </div>    
         <div class="right5"></div>
         <div class="right5"></div>

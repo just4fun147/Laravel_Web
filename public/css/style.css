@@ -12,6 +12,10 @@ html {
 .bg{
   background-color: #1d1d1c;
 }
+hr{
+  color: white;
+  background-color: white;
+}
 * { 
     font-family: "Poppins"; 
     color: white;
@@ -555,4 +559,29 @@ p.firstW{
   text-transform: uppercase;
   font-size: 40px;
   opacity: 0.6;
+}
+
+p.firstC{
+  font-size: 80px;
+  font-family: "Poppins";
+  margin-top: 50px;
+  line-height: 50px;
+  text-transform: uppercase;
+}
+
+p.mail{
+  font-size: 50px;
+  font-family: "Poppins";
+  margin-top: 50px;
+  line-height: 50px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+p.number{
+  font-size: 25px;
+  opacity: 0.9;
+}
+p.asap{
+  font-size: 20px;
+  opacity: 0.9;
 }
