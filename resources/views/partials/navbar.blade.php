@@ -15,7 +15,7 @@
                 <a class="nav-link" {{ ($title === "Work") ? 'active' : '' }} href="/work">Work_</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" {{ ($title === "Feedback") ? 'active' : '' }} href="/feedback">Feedback_</a>
+                <a class="nav-link" {{ ($title === "Contact") ? 'active' : '' }} href="/contact">Contact_</a>
             </li>
         </ul>
     </div>
