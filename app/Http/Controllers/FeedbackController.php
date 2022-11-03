@@ -35,9 +35,9 @@ class FeedbackController extends Controller
            Mail::to($request->email)->send(new FeedbackMail($content)); 
            Feedback::create([ 'name' => $request->name, 'email' => $request->email, 'content' => $request->content ]); 
            //Redirect jika berhasil mengirim email 
-           return redirect('/')->with('message','Feedback success');
+           return redirect('/');
         }catch(Exception $e){ 
-                return redirect('/')->with('error','Feedback Error');
+                return redirect('/');
             } 
      } 
 }

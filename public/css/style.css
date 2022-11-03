@@ -26,6 +26,13 @@ html {
   margin-bottom: 100px;
 }
 
+.btn {
+  margin-top: 1000px;
+  padding: 15px;
+  background-color: #000;
+  color: #fff;
+}
+
 
 /* Trick: */
 body {
@@ -316,7 +323,7 @@ p.third2{
 
 p.firstAbout{
   font-size: 50px;
-  letter-spacing: 5px;
+  letter-spacing: 3px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -374,6 +381,19 @@ p.minor{
 
 p.desc{
   font-size: 20px;
+  text-align: left;
+}
+
+p.descs{
+  font-size: 20px;
+  text-align: justify;
+  line-height: 5px;
+  opacity: 0.8;
+}
+p.descs{
+  font-size: 20px;
+  text-align: justify;
+  opacity: 0.8;
 }
 
 
@@ -403,7 +423,7 @@ p.desc{
 .slides {
   grid-auto-flow: row;
   gap: 1rem;
-  width:calc(70% - 60px);
+  width:calc(90% - 60px);
   height: 720px;
   overflow-y: auto;
   overscroll-behavior-y: contain;
@@ -420,7 +440,7 @@ p.desc{
 
 .slides img {
   margin-left: 50px;
-  width: 750px;
+  width: 600px;
   margin-bottom: 10px;
 }
 
@@ -447,11 +467,10 @@ p.desc{
 .right5{
   text-align: justify;
   height: 550px;
-  width:10%;
+  width:30%;
   float:left;
-  padding:10px;
-  margin-left: 700px;
-  margin-top: 200px;
+  margin-left: 600px;
+  margin-top: 100px;
 }
 
 /*
@@ -477,3 +496,63 @@ p.desc{
   color: #000;
 }
 
+.ref{
+  color: white;
+  opacity: 90%;
+}
+
+.custom-shape-divider-top-1667031329 {
+  position: absolute;
+
+  width: 50%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.feed{
+  width: 69%;
+  border-color: #000;
+  border-radius: 10px;
+  background-color: salmon;
+}
+
+p.firstW{
+  text-transform: uppercase;
+  font-size: 60px;
+  font-family: Helvetica;
+}
+
+.left5{
+  width:calc(50% - 50px); /** 20px = sum of margin left and right */
+  float:left;
+  height: fit-content;
+  padding:10px;
+  margin-left: 50px;
+  box-sizing:border-box;
+}
+.right6{
+  text-align: justify;
+  width:40%;
+  height: 250px;
+  float:left;
+  padding:10px;
+  line-height: 25px;
+  margin-left: 20px;
+  margin-top: 100px;
+}
+
+.contact{
+  text-align: right;
+  width:40%;
+  height: 250px;
+  float:left;
+  padding:10px;
+  line-height: 25px;
+  margin-left: 20px;
+}
+
+.cont{
+  text-transform: uppercase;
+  font-size: 40px;
+  opacity: 0.6;
+}

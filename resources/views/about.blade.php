@@ -59,6 +59,7 @@
                     <p class="desc">Github</p>
                     <p class="desc">API</p>
                     <p class="desc">MySql Database</p>
+                    
 
                 </div>
                 <div class="middle3">
@@ -92,23 +93,35 @@
     <div class="slides">
         <div class="left4">
             <div class="sliding"><img src="/img/raung.png" alt="" width="700px"></div>
-            <div class="sliding"><img src="/img/prau.png" alt="" width="700px"></div>
+            <p class="block">a</p>
+            <div class="sliding"><img src="/img/pb.png" alt="" width="700px"></div>
+            <p class="block">a</p>
             <div class="sliding"><img src="/img/bandung.png" alt="" width="700px"></div>    
         </div> 
         <div class="right5">
-            <p>about me</p>
-            <p>what i like</p>
-            <p>Nature</p>
-            <p>Desc</p>
+            <p id="title">about me_</p>
+            <p class="firstAbout c"><b>WHAT I LIKE</b></p>
             <p class="block">a</p>
-            <p>Writting</p>
-            <p>Desc</p>
+            <p class="thirdAbout">Nature</p>
+            <p class="desc"><a class="ref" href="https://youtube.com/playlist?list=PLhHZtmr9J-c9V3-EYYS8c-KJxbm-I2ciS"><u>Hiking</u></a> into the forest then spending time sitting and enjoying the atmosphere away from the crowds to find peace with the warmth of the campfire.</p>
             <p class="block">a</p>
-            <p>Exploring</p>
-            <p>Desc</p>
+            <p class="block">a</p>
+            <p class="block">a</p>
+            <p class="block">a</p>
+            <p class="thirdAbout">Movie</p>
+            <p class="desc">Stories, the beginning of human civilization that can be presented in an interesting way. Provide value in an attractive way.<a class="ref" href="{{ route('movie.index') }}" target="_blank"><u>  I have some recommendations...</u></a></p>
+            <p class="block">a</p>
+            <p class="block">a</p>
+            <p class="block">a</p>
+            <p class="block">a</p>
+            <p class="block">a</p>
+            <!--<p class="thirdAbout"><a class="ref" href="/education" target="_blank"><u>Exploring</u></a></p> -->
+            <p class="thirdAbout">Exploring</p>
+            <p class="desc">Visit various places to learn culture and other perspectives to develop yourself. Indonesia with 1,340 tribes, 840 languages, and various cultures. There won't be enough time to explore everything</p>
         </div>    
         <div class="right5"></div>
+        <div class="right5"></div>
     </div>    
-      
+    
 @endsection
 

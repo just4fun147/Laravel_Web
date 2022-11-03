@@ -32,4 +32,20 @@ Route::get('/about', function () {
     ]);
 });
 
+Route::get('/education', function () {
+    return view('education', [
+        "title" => "Education"
+    ]);
+});
+
+Route::get('/work', function () {
+    return view('work', [
+        "title" => "Work"
+    ]);
+});
+Route::get('/contact', function () {
+    return view('contact', [
+        "title" => "Contact"
+    ]);
+});
 
