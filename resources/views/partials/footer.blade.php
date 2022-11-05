@@ -7,7 +7,7 @@
                     <a class="nav-link"> &copy Paulus Pandu Windito 2022</a> 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"> time </a> 
+                    <span id="view_clock" class="nav-link"></span>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -24,3 +24,32 @@
         </div>
     </nav>
 </footer>
+
+<script type="text/javascript">
+    timerID = setInterval('clock()',500); 
+    function clock() {
+    document.getElementById("view_clock").innerHTML = getNow();
+}var toDoubleDigits = function(num) {
+num += "";
+if (num.length === 1) {
+    num = "0" + num;
+}
+return num;     
+};
+
+function getNow() {
+    var now = new Date();
+    var hour = toDoubleDigits(now.getHours());
+    var min = toDoubleDigits(now.getMinutes());
+
+    //出力用
+    if(hour>12){
+        ap = "PM";
+    } else{
+        ap = "AM";
+    }
+    var s1 = hour + ":" + min + " " + ap;
+    
+    return s1;
+}
+</script>

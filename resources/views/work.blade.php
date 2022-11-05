@@ -7,14 +7,19 @@
         <p class="firstW"><b>My Creations</b></p>
         <p class="descs">Projects I've ever made. It's never been commercial,</p>
         <p class="descs"> but I'm trying to make it for practice.</p>
-
+        
         <div class="left5">
             <img src="img/web.png" alt="" width="500">
         </div>
         <div class="right6">
             <p id="title">Personal Web</p>
-            <p class="descss">I learned a lot to make this website using laravel and will continue to develop it by adding new features. <a class="ref" href="/feedback" target="_blank"><u>You can give suggestions, feedback, or suggest what features I should add.</u></a> </p>
+            <p class="descss">I learned a lot to make this website using laravel and will continue to develop it by adding new features. <a class="ref" href="/feedback" target="_blank"><u>You can give suggestions, feedback, or suggest what features I should add.</u></a> I'll email you if I create a new feature.</p>
         </div>
+        <p class="block">a</p>
+        <p class="block">a</p>
+        <p class="blocks">a</p>
+        <p class="blocks">a</p>
+        <hr>
         <div class="left5">
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" style="margin-left: 90px">
@@ -50,10 +55,17 @@
         <div class="right6">
             <p class="block">a</p>
             <p id="title">Atma Cinema</p>
-            <p class="descss">This is a mobile application that I made with my friend for a 5th semester college assignment and is still being developed at this time. Coincidentally my group got a cinema friend this was great fun!</p>
+            <p class="descss">This is a mobile application that I made with my friend for a 5th semester college assignment and is still being developed at this time. Coincidentally my group got a cinema friend this was great fun! <a class="ref" href="https://github.com/Gamdara/TUBES_4_BIOSKOP" target="_blank"><u>You can download the source code here.</u></a></p>
         </div>
-        <div class="right6">
-        </div>
+        <p class="block">a</p>
+        <p class="block">a</p>
+        <p class="block">a</p>
+        <p class="block">a</p>
+        <p class="block">a</p>
+        <p class="blocks">a</p>
+        <p class="blocks">a</p>
+        <p class="blocks">a</p>
+        <hr>
         <div class="left5">
           <img src="img/numberGuessing.png" alt="" width="500">
         </div>
@@ -61,6 +73,24 @@
           <p id="title">Number Guessing Game</p>
           <p class="descss">This is a simple number guessing game used for me to learn vuejs. You can try it <a class="ref" href="/vueJs/numberGuessing" target="_blank"><u>here.</u></a></p>
         </div>
+        <p class="block">a</p>
+        <p class="block">a</p>
+        <p class="blocks">a</p>
+        <p class="blocks">a</p>
+        <hr>
+        <div class="left5">
+          <img src="img/perpustakaan.png" alt="" width="500">
+        </div>
+        <div class="right6">
+          <p id="title">Perpustakaan Jalur Literasi</p>
+          <p class="descss">Web project for a library that can manage books, borrow books, magazines and sell magazines as college assignments with pure php which I<a class="ref" href="/perpus" target="_blank"><u> then recreate with laravel.</u></a></p>
+        </div>
+        <p class="block">a</p>
+        <p class="block">a</p>
+        <p class="blocks">a</p>
+        <p class="blocks">a</p>
+        <p class="blocks">a</p>
+        <hr>
     </div>
     <div class="contact">
       <p class="block">a</p>
