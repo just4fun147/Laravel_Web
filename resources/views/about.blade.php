@@ -59,9 +59,8 @@
                     <p class="desc">Github</p>
                     <p class="desc">API</p>
                     <p class="desc">MySql Database</p>
-                    <p class="desc">Vue js</p>
+                    <p class="desc">Vue.js</p>
                     
-
                 </div>
                 <div class="middle3">
                     <p class="thirdAbout"><b>Programming Language</b></p>

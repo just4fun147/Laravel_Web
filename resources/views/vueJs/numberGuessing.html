@@ -32,6 +32,9 @@
                 <span v-if="status == 'begin' || status == 'Berhasil'">
                     <input class="inputan" v-model.number="teks" type="number" placeholder="Your answer.." disabled/>
                 </span>
+                <span v-else-if="status == 'Gagal' && attempt == 3">
+                    <input class="inputan" v-model.number="teks" type="number" placeholder="Your answer.." disabled/>
+                </span>
                 <span v-else>
                     <input class="inputan" v-model.number="teks" type="number" placeholder="Your answer.."/>
                 </span>

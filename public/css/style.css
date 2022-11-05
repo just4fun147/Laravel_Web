@@ -29,6 +29,10 @@ hr{
   opacity: 0;
   margin-bottom: 100px;
 }
+.blocks{
+  opacity: 0;
+  margin-bottom: 10px;
+}
 
 .btn {
   margin-top: 1000px;
@@ -58,7 +62,7 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 50px;
+  height: 70px;
 }
 
 /* home */
@@ -548,11 +552,9 @@ p.firstW{
 .contact{
   text-align: right;
   width:40%;
-  height: 250px;
-  float:left;
-  padding:10px;
-  line-height: 25px;
-  margin-left: 20px;
+  height: fit-content;
+  float:right;
+  margin-right: 100px;
 }
 
 .cont{
