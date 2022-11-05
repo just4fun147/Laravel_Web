@@ -48,9 +48,20 @@
                 </div>
         </div>
         <div class="right6">
+            <p class="block">a</p>
             <p id="title">Atma Cinema</p>
             <p class="descss">This is a mobile application that I made with my friend for a 5th semester college assignment and is still being developed at this time. Coincidentally my group got a cinema friend this was great fun!</p>
          </div>
+         <div class="right6">
+          <p class="block">a</p>
+         </div>
+         <div class="left5">
+          <img src="img/numberGuessing.png" alt="" width="500">
+      </div>
+      <div class="right6">
+          <p id="title">Number Guessing Game</p>
+          <p class="descss">This is a simple number guessing game used for me to learn vuejs. You can try it <a class="ref" href="/numberGuessing" target="_blank"><u>here.</u></a></p>
+      </div>
        </div>
 
        <div class="contact">

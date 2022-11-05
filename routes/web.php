@@ -49,3 +49,9 @@ Route::get('/contact', function () {
     ]);
 });
 
+Route::get('/numberGuessing', function () {
+    return view('numberGuessing', [
+        "title" => "Number Guessing"
+    ]);
+});
+
