@@ -60,7 +60,7 @@
       </div>
       <div class="right6">
           <p id="title">Number Guessing Game</p>
-          <p class="descss">This is a simple number guessing game used for me to learn vuejs. You can try it <a class="ref" href="/numberGuessing" target="_blank"><u>here.</u></a></p>
+          <p class="descss">This is a simple number guessing game used for me to learn vuejs. You can try it <a class="ref" href="/vueJs/numberGuessing" target="_blank"><u>here.</u></a></p>
       </div>
        </div>
 

@@ -49,9 +49,15 @@ Route::get('/contact', function () {
     ]);
 });
 
-Route::get('/numberGuessing', function () {
-    return view('numberGuessing', [
+Route::get('/vueJs/numberGuessing', function () {
+    return view('/vueJs/numberGuessing', [
         "title" => "Number Guessing"
+    ]);
+});
+
+Route::get('/vueJs/todo', function () {
+    return view('/vueJs/todo', [
+        "title" => "To Do List"
     ]);
 });
 
