@@ -9,7 +9,7 @@
                 @csrf
                 <label for="exampleInputEmail1" class="form-label">Name</label>
                 <div class="mb-3">
-                    <input class="form-control @error('nama') is-invalid @enderror" id="name" name="name" aria-describedby="emailHelp" required value="{{ old('nama') }}">
+                    <input class="form-control @error('nama') is-invalid @enderror" id="name" name="name" aria-describedby="emailHelp" required value="{{ old('name') }}">
                     @error('name')
                     <div id="validationServerUsernameFeedback" class="invalid-feedback">
                         {{ $message }}
@@ -31,7 +31,7 @@
                         <i class="fa fa-eye-slash" id="togglePassword" 
                        style="cursor: pointer"></i>
                        </span>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="">
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Password">
                     @error('password')
                     <div id="validationServerUsernameFeedback" class="invalid-feedback">
                         Password must contain uppercase, lowercase, number, and symbol!
@@ -48,7 +48,7 @@
                 </div>
             </form>
             <p class="mt-2 mb-0">You already have an account?
-                <a href="/perpus/page/loginPage" class="textprimary">Please Sign in!</a>
+                <a href="/login" class="textprimary">Please Sign in!</a>
             </p>
         </div>
     </div>

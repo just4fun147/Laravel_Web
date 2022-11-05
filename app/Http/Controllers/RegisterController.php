@@ -25,6 +25,6 @@ class RegisterController extends Controller
         $validatedData['password'] = bcrypt($request->password);
         
         User::create($validatedData);
-        return redirect('/perpus');
+        return redirect('/login')->with('success', 'Registration Successfull!! Please Login');
     }
 }

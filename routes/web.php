@@ -74,7 +74,7 @@ Route::get('/perpus/index', function () {
     ]);
 });
 
-Route::get('/perpus/page/loginPage', function () {
+Route::get('/login', function () {
     return view('/perpus/page/loginPage', [
         "title" => "Perpustakaan Jalur Literasi"
     ]);

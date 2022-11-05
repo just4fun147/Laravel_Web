@@ -5,7 +5,12 @@
         <div class="container min-vh-100 mt-5 d-flex align-items-center justifycontent-center">
             <div class="card text-white p-3 mb-2 bg-dark ma-5 shadow " style="min-width: 25rem;">
                 <!--Form inputan, name masing-masing label jangan diganti  -->
-
+                @if(session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
                 <form action="../process/loginProcess.php" method="post">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email</label>
@@ -21,7 +26,7 @@
                     </div>
                 </form>
                 <p class="mt-2 mb-0">Don’t have an account yet?
-                    <a href="/perpus/page/registerPage" class="textprimary">Click here!</a>
+                    <a href="/register" class="textprimary">Click here!</a>
                 </p>
             </div>
         </div>

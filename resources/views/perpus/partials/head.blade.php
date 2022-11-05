@@ -7,7 +7,7 @@
                 <a class=" text-light" style="text-decoration: none" href="/register">Sign Up</a>
             </button>
             <button class="btn btn-outline-warning ms-2" type="button" href="./loginPage.php">
-                <a class="text-light" style="text-decoration: none" href="/perpus/page/loginPage">Login</a>
+                <a class="text-light" style="text-decoration: none" href="/login">Login</a>
             </button>
         </div>
     </div>
