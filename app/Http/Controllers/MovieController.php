@@ -26,7 +26,7 @@ class MovieController extends Controller
         return view('movie.edit', [
          'id' => $id,
          'title' => "Edit Movie"
-      ])->with('message','Add Movie success'); 
+      ])->with('message','Edit Movie success'); 
      } 
 
      public function destroy($id) { 

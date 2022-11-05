@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
-class Movie extends Model
+class majalah extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'judul',
-        'name',
-        'rating',
+        'topik',
+        'jumlah_halaman',
+        'harga',
     ];
 
     public function getCreatedAttribute(){
