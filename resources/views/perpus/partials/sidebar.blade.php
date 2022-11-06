@@ -24,7 +24,7 @@
         }
 
         .side-bar {
-            width: 260px;
+            width: 270px;
             background-color: #1A374D;
             min-height: 100vh;
         }
@@ -80,38 +80,66 @@
                     <hr style="color:#FFFFFF; height:5px;">
                     <div class="menu">
                         <div class="content-menu">
-                            &nbsp<i class="bi bi-house"></i>
-                            <a href="/dashboardPage.php" style="font-weight:600">Dashboard</a>
+                            <form action="/dashboard" method="get">
+                                <button type="submit" style="border: 0; background-color: #1A374D">
+                                    <i class="bi bi-house"></i>
+                                    <a style="font-weight:600; font-size:13px; color:#b1d0e0">Dashboard</a>
+                                </button>
+                            </form>
                         </div>
                         <div class="content-menu ">
-                            &nbsp<i class="bi bi-book"></i>
-                            <a href="/listBukuPage.php" style="font-weight:600">List Buku</a>
+                            <form action="/listBuku" method="get">
+                                <button type="submit" style="border: 0; background-color: #1A374D">
+                                    <i class="bi bi-book"></i>
+                                    <a style="font-weight:600; font-size:13px; color:#b1d0e0">List Buku</a>
+                                </button>
+                            </form>
                         </div>';
                         if($name=="admin"){
                             echo'
                             <div class="content-menu ">
-                                    &nbsp<i class="bi bi-view-list"></i>
-                                    <a href="/listPeminjamPage.php" style="font-weight:600">List Peminjam</a>
-                                </div>
-                                <div class="content-menu ">
-                                    &nbsp<i class="fa fa-list-alt"></i>
-                                    <a href="/listPembeliPage.php" style="font-weight:600">List Pembeli</a>
-                                </div>';
+                                <form action="/listPeminjam" method="get">
+                                    <button type="submit" style="border: 0; background-color: #1A374D">
+                                        <i class="bi bi-view-list"></i>
+                                        <a style="font-weight:600; font-size:13px; color:#b1d0e0">List Peminjam</a>
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="content-menu ">
+                                <form action="/listPembeli" method="get">
+                                    <button type="submit" style="border: 0; background-color: #1A374D">
+                                        <i class="fa fa-list-alt"></i>
+                                        <a style="font-weight:600; font-size:13px; color:#b1d0e0">List Pembeli</a>
+                                    </button>
+                                </form>
+                            </div>';
                         }else{
                             echo'
                             <div class="content-menu ">
-                                    &nbsp<i class="bi bi-view-list"></i>
-                                    <a href="/listPeminjamanPage.php" style="font-weight:600">List Peminjaman</a>
-                                </div>
-                                    <div class="content-menu ">
-                                        &nbsp<i class="bi bi-bag"></i>
-                                        <a href="/listPembelianMajalahPage.php" style="font-weight:600">List Pembelian Majalah</a>
-                                    </div>';
+                                <form action="/listPeminjaman" method="get">
+                                    <button type="submit" style="border: 0; background-color: #1A374D">
+                                        <i class="bi bi-view-list"></i>
+                                        <a style="font-weight:600; font-size:13px; color:#b1d0e0">List Peminjaman</a>
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="content-menu">
+                                <form action="/listPembelianMajalah" method="get">
+                                    <button type="submit" style="border: 0; background-color: #1A374D">
+                                        <i class="bi bi-bag"></i>
+                                        <a style="font-weight:600; font-size:13px; color:#b1d0e0">List Pembelian Majalah</a>
+                                    </button>
+                                </form>
+                            </div>';
                         }
                         echo'
                         <div class="content-menu ">
-                            &nbsp<i class="bi bi-book-half"></i>
-                            <a href="/listMajalahPage.php" style="font-weight:600">List Majalah</a>
+                            <form action="/listMajalah" method="get">
+                                <button type="submit" style="border: 0; background-color: #1A374D">
+                                    <i class="bi bi-book-half"></i>
+                                    <a style="font-weight:600; font-size:13px; color:#b1d0e0">List Majalah</a>
+                                </button>
+                            </form>
                         </div>';
                         ?>
                         

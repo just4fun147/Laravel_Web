@@ -16,10 +16,17 @@ Route::resource('/feedback', \App\Http\Controllers\FeedbackController::class);
 Route::resource('/movie', \App\Http\Controllers\MovieController::class);
 Route::resource('/perpus', \App\Http\Controllers\PerpusController::class)->middleware('guest');
 Route::resource('/register', \App\Http\Controllers\RegisterController::class)->middleware('guest');
-Route::resource('/dashboard', \App\Http\Controllers\DashboardController::class);
 
+Route::controller(\App\Http\Controllers\DashboardController::class)->group(function () {
+    Route::get('/dashboard', 'index');
+    Route::get('/listBuku', 'listBuku');
+    Route::get('/listPeminjam', 'listPeminjam');
+    Route::get('/listPembeli', 'listPembeli');
+    Route::get('/listPeminjaman', 'listPeminjaman');
+    Route::get('/listPembelianMajalah', 'listPembelianMajalah');
+    Route::get('/listMajalah', 'listMajalah');
+});
 Route::controller(\App\Http\Controllers\LoginController::class)->group(function () {
-
     Route::get('/login', 'index')->middleware('guest');
     Route::post('/login', 'store');
     Route::post('/logout', 'logout');
