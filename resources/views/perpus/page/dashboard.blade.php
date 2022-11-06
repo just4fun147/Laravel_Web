@@ -3,16 +3,16 @@
 <?php
 $name = auth()->user()->name;
 $totalDataBuku = DB::table('bukus')->count();
-$totalDataPeminjaman = DB::table('peminjamen')->where('status','Dipinjam');
+$totalDataPeminjaman = DB::table('peminjamen')->where('status','Dipinjam')->count();
 $totalMajalah = DB::table('bukus')->count();
-$totalPembelian = DB::table('pembelians')->where('status','Dipinjam');
+$totalPembelian = DB::table('pembelians')->where('status','Dipinjam')->count();
 echo'
 <head>
     <title>Dashboard</title>
 </head>
 <div class="container p-3 m-4 h-100 shadow-lg"
     style="background-color: #FFFFFF; border-top: 5px solid #Ff4e44; boxshadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-    <h4>Selamat datang di perpustakaan Jalur Literasi</h4>
+    <h4>Selamat Datang di Perpustakaan Jalur Literasi</h4>
     <hr>';
 
     if ($name == "admin") {
@@ -25,7 +25,7 @@ echo'
                 </div>
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
-                        <img src="../assets/images/books.png" alt="" srcset="" style="width: 20rem;">
+                        <img src="/img/books.png" alt="" srcset="" style="width: 20rem;">
                     </div>
                     <hr>
                     <div class="row">
@@ -50,7 +50,7 @@ echo'
                 <div class="card-body">
                     <div class="card-body">
                         <div class="d-flex justify-content-center">
-                            <img src="../assets/images/peminjaman.png" alt="" srcset="" style="width: 13rem;">
+                            <img src="/img/peminjaman.png" alt="" srcset="" style="width: 12rem;">
                         </div>
                         <hr>
                         <div class="row">
@@ -78,7 +78,7 @@ echo'
                 </div>
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
-                        <img src="../assets/images/magazine.png" alt="" srcset="" style="width: 20rem;">
+                        <img src="/img/magazine.png" alt="" srcset="" style="width: 20rem;">
                     </div>
                     <hr>
                     <div class="row">
@@ -102,7 +102,7 @@ echo'
                 </div>
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
-                        <img src="../assets/images/peminjaman.png" alt="" srcset="" style="width: 13rem;">
+                        <img src="/img/peminjaman.png" alt="" srcset="" style="width: 10.8rem;">
                     </div>
                     <hr>
                     <div class="row">
