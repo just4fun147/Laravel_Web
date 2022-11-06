@@ -82,43 +82,49 @@
                     <hr style="color:#FFFFFF; height:5px;">
                     <div class="menu">
                         <div class="content-menu">
-                            <i class="bi bi-house"></i>
+                            &nbsp<i class="bi bi-house"></i>
                             <a href="/dashboardPage.php" style="font-weight:600">Dashboard</a>
                         </div>
                         <div class="content-menu ">
-                            <i class="bi bi-book"></i>
+                            &nbsp<i class="bi bi-book"></i>
                             <a href="/listBukuPage.php" style="font-weight:600">List Buku</a>
                         </div>';
                         if($name=="admin"){
                             echo'
                             <div class="content-menu ">
-                                    <i class="bi bi-view-list"></i>
+                                    &nbsp<i class="bi bi-view-list"></i>
                                     <a href="/listPeminjamPage.php" style="font-weight:600">List Peminjam</a>
                                 </div>
                                 <div class="content-menu ">
-                                    <i class="fa fa-list-alt"></i>
+                                    &nbsp<i class="fa fa-list-alt"></i>
                                     <a href="/listPembeliPage.php" style="font-weight:600">List Pembeli</a>
                                 </div>';
                         }else{
                             echo'
                             <div class="content-menu ">
-                                    <i class="bi bi-view-list"></i>
+                                    &nbsp<i class="bi bi-view-list"></i>
                                     <a href="/listPeminjamanPage.php" style="font-weight:600">List Peminjaman</a>
                                 </div>
                                     <div class="content-menu ">
-                                        <i class="bi bi-bag"></i>
+                                        &nbsp<i class="bi bi-bag"></i>
                                         <a href="/listPembelianMajalahPage.php" style="font-weight:600">List Pembelian Majalah</a>
                                     </div>';
                         }
                         echo'
                         <div class="content-menu ">
-                            <i class="bi bi-book-half"></i>
+                            &nbsp<i class="bi bi-book-half"></i>
                             <a href="/listMajalahPage.php" style="font-weight:600">List Majalah</a>
-                        </div>
-
+                        </div>';
+                        ?>
+                        
                         <div class="content-menu ">
-                            <i class="fa fa-sign-out"></i>
-                            <a href="../process/logoutProcess.php" style="font-weight:600">&nbspLogout</a>
+                            <form action="/logout" method="post">
+                                @csrf
+                                <button type="submit" style="border: 0; background-color: #1A374D">
+                                    <i class="fa fa-sign-out"></i>
+                                    <a style="font-weight:600; font-size:13px; color:#b1d0e0">Logout</a>
+                                </button>
+                            </form>
                         </div>
                     </div>
                     <hr style="color: #FFFFFF; height: 5px;">

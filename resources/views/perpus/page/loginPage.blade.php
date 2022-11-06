@@ -26,9 +26,13 @@
                         </div>
                         @enderror
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" required>
+                    <label for="exampelInputEmail1">Password</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">
+                            <i class="fa fa-eye-slash" id="togglePassword" 
+                           style="cursor: pointer"></i>
+                           </span>
+                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Password">
                         @error('password')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -46,4 +50,19 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const togglePassword = document.querySelector("#togglePassword");
+        const password = document.querySelector("#password");
+    
+        togglePassword.addEventListener("click", function () {
+        
+        // toggle the type attribute
+        const type = password.getAttribute("type") === "password" ? "text" : "password";
+        password.setAttribute("type", type);
+        // toggle the eye icon
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+    });
+    </script>
 @endsection
