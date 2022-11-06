@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Buku;
+use App\Models\Majalah;
 
 class DashboardController extends Controller
 {
@@ -54,8 +55,9 @@ class DashboardController extends Controller
     }
 
     public function listMajalah(){
-        
-        return view('perpus.page.listMajalah', [
+        $majalah = Majalah::paginate(10);
+
+        return view('perpus.page.listMajalah', compact('majalah'), [
             'title' => 'List Majalah',
             'active' => 'List Majalah'
         ]);
