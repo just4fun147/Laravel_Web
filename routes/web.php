@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 Route::resource('/feedback', \App\Http\Controllers\FeedbackController::class);
 Route::resource('/movie', \App\Http\Controllers\MovieController::class);
-Route::resource('/perpus', \App\Http\Controllers\PerpusController::class);
-Route::resource('/register', \App\Http\Controllers\RegisterController::class);
+Route::resource('/perpus', \App\Http\Controllers\PerpusController::class)->middleware('guest');
+Route::resource('/register', \App\Http\Controllers\RegisterController::class)->middleware('guest');
+Route::resource('/login', \App\Http\Controllers\LoginController::class)->middleware('guest');
+Route::resource('/dashboard', \App\Http\Controllers\DashboardController::class);
 
 Route::group(['middleware' => 'auth:api'], function(){
     
@@ -70,12 +72,6 @@ Route::get('/vueJs/todo', function () {
 
 Route::get('/perpus/index', function () {
     return view('/perpus/index', [
-        "title" => "Perpustakaan Jalur Literasi"
-    ]);
-});
-
-Route::get('/login', function () {
-    return view('/perpus/page/loginPage', [
         "title" => "Perpustakaan Jalur Literasi"
     ]);
 });

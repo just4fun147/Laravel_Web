@@ -10,17 +10,12 @@
                 <label for="exampleInputEmail1" class="form-label">Name</label>
                 <div class="mb-3">
                     <input class="form-control @error('nama') is-invalid @enderror" id="name" name="name" aria-describedby="emailHelp" required value="{{ old('name') }}">
-                    @error('name')
-                    <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                    @enderror
                 </div>
                 <label for="exampleInputEmail1" class="form-label">Email</label>
                 <div class="mb-3"> 
                     <input class="form-control @error('email') is-invalid @enderror" id="email" name="email" aria-describedby="emailHelp" value="{{ old('email') }}">
                     @error('email')
-                    <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                    <div class="invalid-feedback">
                         {{ $message }}
                     </div>
                     @enderror
@@ -33,8 +28,8 @@
                        </span>
                     <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Password">
                     @error('password')
-                    <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                        Password must contain uppercase, lowercase, number, and symbol!
+                    <div class="invalid-feedback">
+                        {{ $message }}
                     </div>
                     @enderror
                 </div>
