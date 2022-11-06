@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
     public function index(){
         
-        return view('perpus/page/dashboard', [
+        return view('perpus.page.dashboard', [
             'title' => 'Dashboard',
             'active' => 'Dashboard'
         ]);
@@ -17,21 +17,21 @@ class DashboardController extends Controller
 
     public function listBuku(){
         $buku = Buku::paginate(10);
-        return view('perpus/page/listBuku',compact('buku'), [
+        return view('perpus.page.listBuku',compact('buku'), [
             'title' => 'List Buku',
             'active' => 'List Buku'
         ]);
     }
     public function listPeminjam(){
         
-        return view('perpus/page/listPeminjam', [
+        return view('perpus.page.listPeminjam', [
             'title' => 'List Peminjam',
             'active' => 'List Peminjam'
         ]);
     }
     public function listPembeli(){
         
-        return view('perpus/page/listPembeli', [
+        return view('perpus.page.listPembeli', [
             'title' => 'List Pembeli',
             'active' => 'List Pembeli'
         ]);
@@ -39,7 +39,7 @@ class DashboardController extends Controller
 
     public function listPeminjaman(){
         
-        return view('perpus/page/listPeminjaman', [
+        return view('perpus.page.listPeminjaman', [
             'title' => 'List Peminjaman',
             'active' => 'List Peminjaman'
         ]);
@@ -47,7 +47,7 @@ class DashboardController extends Controller
 
     public function listPembelianMajalah(){
         
-        return view('perpus/page/listPembelianMajalah', [
+        return view('perpus.page.listPembelianMajalah', [
             'title' => 'List Pembelian Majalah',
             'active' => 'List Pembelian Majalah'
         ]);
@@ -55,7 +55,7 @@ class DashboardController extends Controller
 
     public function listMajalah(){
         
-        return view('perpus/page/listMajalah', [
+        return view('perpus.page.listMajalah', [
             'title' => 'List Majalah',
             'active' => 'List Majalah'
         ]);

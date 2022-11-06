@@ -4,7 +4,7 @@
 $name = auth()->user()->name;
 $totalDataBuku = DB::table('bukus')->count();
 $totalDataPeminjaman = DB::table('peminjamen')->where('status','Dipinjam')->count();
-$totalMajalah = DB::table('bukus')->count();
+$totalMajalah = DB::table('majalahs')->count();
 $totalPembelian = DB::table('pembelians')->where('status','Dipinjam')->count();
 echo'
 <head>
@@ -30,12 +30,12 @@ echo'
                     <hr>
                     <div class="row">
                         <div class="col-auto">
-                            <p>Total Jenis Buku Tersedia:'. $totalDataBuku.'
+                            <p>Total Jenis Buku Tersedia:<b> '. $totalDataBuku.'</b>
                             </p>
                         </div>
                         <div class="col">
                             <div class="d-grid gap-2">
-                                <a href="../Page/listBukuPage.php" class="btn btn-success">Lihat Selengkapnya</a>
+                                <a href="/listBuku" class="btn btn-success">Lihat Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -55,12 +55,12 @@ echo'
                         <hr>
                         <div class="row">
                             <div class="col-auto">
-                                <p>Total Buku Sedang Dipinjam:'.$totalDataPeminjaman.'
+                                <p>Total Buku Sedang Dipinjam:<b> '.$totalDataPeminjaman.'</b>
                                 </p>
                             </div>
                             <div class="col">
                                 <div class="d-grid gap-2">
-                                    <a href="../Page/listPeminjamPage.php" class="btn btn-success">Lihat
+                                    <a href="/listPeminjam" class="btn btn-success">Lihat
                                         Selengkapnya</a>
                                 </div>
                             </div>
@@ -83,12 +83,12 @@ echo'
                     <hr>
                     <div class="row">
                         <div class="col-auto">
-                            <p>Total Majalah Tersedia: '.$totalMajalah.'
+                            <p>Total Majalah Tersedia:<b> '.$totalMajalah.'</b>
                             </p>
                         </div>
                         <div class="col">
                             <div class="d-grid gap-2">
-                                <a href="../Page/listMajalahPage.php" class="btn btn-success">Lihat Selengkapnya</a>
+                                <a href="/listMajalah" class="btn btn-success">Lihat Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -107,11 +107,11 @@ echo'
                     <hr>
                     <div class="row">
                         <div class="col-auto">
-                            <p>Total Majalah Terbeli: '.$totalPembelian.'</p>
+                            <p>Total Majalah Terbeli:<b> '.$totalPembelian.'</b></p>
                         </div>
                         <div class="col">
                             <div class="d-grid gap-2">
-                                <a href="../Page/listPembeliPage.php" class="btn btn-success">Lihat
+                                <a href="/listPembeli" class="btn btn-success">Lihat
                                     Selengkapnya</a>
                             </div>
                         </div>
