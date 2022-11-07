@@ -46,7 +46,7 @@
                 @forelse ($majalah as $item) 
                 <tr> 
                     <tr> 
-                        <th scope="row">$no </th> 
+                        <th scope="row">{{ $no }}</th> 
                         <td>{{ $item->judul }}</td> 
                         <td>{{ $item->topik }}</td> 
                         <td>{{ $item->jumlah_halaman }}</td> 
@@ -55,16 +55,16 @@
                             <?php
                             if($name!="admin"){
                                 echo' 
-                                <a href="../process/pembelianMajalahProcess.php?id=' . $data['id'] . '"> <i style="color: blue" class="fa-solid fa-cart-shopping fa-2x"></i>  
+                                <a href="../process/pembelianMajalahProcess.php?id=' . $item['id'] . '"> <i style="color: blue" class="fa-solid fa-cart-shopping fa-2x"></i>  
                                 </td>';
                             }
                         
                         
                         if($name=="admin"){
                             echo'
-                            <a href="../page/editMajalahPage.php?id=' . $data['id'] . '"> <i style="color: red" class="fa fa-pencil fa-2x"></i> 
+                            <a href="../page/editMajalahPage.php?id=' . $item['id'] . '"> <i style="color: red" class="fa fa-pencil fa-2x"></i> 
                             <td> 
-                            <a href="../process/deleteMajalahProcess.php?id=' . $data['id'] . '"> <i style="color: red" class="fa fa-trash fa-2x"></i> 
+                            <a href="../process/deleteMajalahProcess.php?id=' . $item['id'] . '"> <i style="color: red" class="fa fa-trash fa-2x"></i> 
                             </td>';
                         }
                             ?>

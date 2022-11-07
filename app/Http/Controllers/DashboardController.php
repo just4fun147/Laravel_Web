@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Buku;
 use App\Models\Majalah;
-
+use App\Models\Pembelian;
+use App\Models\Peminjaman;
 class DashboardController extends Controller
 {
     public function index(){
@@ -24,15 +25,15 @@ class DashboardController extends Controller
         ]);
     }
     public function listPeminjam(){
-        
-        return view('perpus.page.listPeminjam', [
+        $peminjaman = Peminjaman::paginate(10);
+        return view('perpus.page.listPeminjam', compact('peminjaman'), [
             'title' => 'List Peminjam',
             'active' => 'List Peminjam'
         ]);
     }
     public function listPembeli(){
-        
-        return view('perpus.page.listPembeli', [
+        $pembelian = Pembelian::paginate(10);
+        return view('perpus.page.listPembeli',compact('pembelian'), [
             'title' => 'List Pembeli',
             'active' => 'List Pembeli'
         ]);
