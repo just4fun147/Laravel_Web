@@ -71,12 +71,16 @@
         <aside>
             <div class="d-flex">
                 <div class="side-bar">
-                    <div class="profile">
-                        <a href="./profilePage.php" class="">
-                            <span class="" style="font-size: 15px;color: #FFFFFF;"> '.$name.'</span>
-                        </a>
+                    <div class="menu">
+                        <div class="content-menu">
+                            <form action="/profile" method="get">
+                                <button type="submit" style="border: 0; background-color: #1A374D; margin-top:15px;">
+                                    <i class="fa fa-user"></i>
+                                    <a style="font-weight:600; font-size:20px; color:#b1d0e0">'.$name.'</a>
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                    
                     <hr style="color:#FFFFFF; height:5px;">
                     <div class="menu">
                         <div class="content-menu">

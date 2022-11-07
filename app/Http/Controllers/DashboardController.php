@@ -40,8 +40,8 @@ class DashboardController extends Controller
     }
 
     public function listPeminjaman(){
-        
-        return view('perpus.page.listPeminjaman', [
+        $peminjaman = Peminjaman::paginate(10);
+        return view('perpus.page.listPeminjaman', compact('peminjaman'), [
             'title' => 'List Peminjaman',
             'active' => 'List Peminjaman'
         ]);
@@ -61,6 +61,14 @@ class DashboardController extends Controller
         return view('perpus.page.listMajalah', compact('majalah'), [
             'title' => 'List Majalah',
             'active' => 'List Majalah'
+        ]);
+    }
+
+    public function profile(){
+
+        return view('perpus.page.profile', [
+            'title' => 'Profile',
+            'active' => 'Profile'
         ]);
     }
 

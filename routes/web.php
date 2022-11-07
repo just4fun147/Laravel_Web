@@ -25,6 +25,7 @@ Route::controller(\App\Http\Controllers\DashboardController::class)->group(funct
     Route::get('/listPeminjaman', 'listPeminjaman');
     Route::get('/listPembelianMajalah', 'listPembelianMajalah');
     Route::get('/listMajalah', 'listMajalah');
+    Route::get('/profile', 'profile');
 });
 Route::controller(\App\Http\Controllers\LoginController::class)->group(function () {
     Route::get('/login', 'index')->middleware('guest');
