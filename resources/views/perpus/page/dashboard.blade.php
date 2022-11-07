@@ -6,9 +6,14 @@ $totalDataBuku = DB::table('bukus')->count();
 $totalDataPeminjaman = DB::table('peminjamen')->where('status','Dipinjam')->count();
 $totalMajalah = DB::table('majalahs')->count();
 $totalPembelian = DB::table('pembelians')->where('status','Dipinjam')->count();
-$tempCommon= DB::table('peminjamen')->select('buku_id')->groupBy('buku_id')->orderByRaw('COUNT(*) DESC')->limit(1)->pluck('buku_id');
-$images = DB::table('bukus')->where('id',$tempCommon)->pluck('gambar');
-$judul = DB::table('bukus')->where('id',$tempCommon)->pluck('judul');
+if($totalDataBuku!=0 && $totalDataPeminjaman!=0){
+    $tempCommon= DB::table('peminjamen')->select('buku_id')->groupBy('buku_id')->orderByRaw('COUNT(*) DESC')->limit(1)->pluck('buku_id');
+    $images = DB::table('bukus')->where('id',$tempCommon)->pluck('gambar');
+    $judul = DB::table('bukus')->where('id',$tempCommon)->pluck('judul');
+}else{
+    $images=null;
+}
+
 echo'
 <head>
     <title>Dashboard</title>
@@ -124,6 +129,7 @@ echo'
         </div>
     </div>';
     }else{
+        if($images!=null){
         ?>
         @forelse($images as $item)
         <?php
@@ -149,11 +155,15 @@ echo'
                         @endforeach
                     </div>
                 </div>
-            </div>';
+            </div>
         @empty
-        <h1>Hai '.$name.'</h1>';
+        <h1>Hai '.$name.'</h1>
         @endforelse
         <?php
+        }else{
+            echo'
+                <h1>Hai '.$name.'</h1>';
+        }
     }
     echo'
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
