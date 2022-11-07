@@ -6,6 +6,9 @@ $totalDataBuku = DB::table('bukus')->count();
 $totalDataPeminjaman = DB::table('peminjamen')->where('status','Dipinjam')->count();
 $totalMajalah = DB::table('majalahs')->count();
 $totalPembelian = DB::table('pembelians')->where('status','Dipinjam')->count();
+$tempCommon= DB::table('peminjamen')->select('buku_id')->groupBy('buku_id')->orderByRaw('COUNT(*) DESC')->limit(1)->pluck('buku_id');
+$images = DB::table('bukus')->where('id',$tempCommon)->pluck('gambar');
+$judul = DB::table('bukus')->where('id',$tempCommon)->pluck('judul');
 echo'
 <head>
     <title>Dashboard</title>
@@ -121,8 +124,36 @@ echo'
         </div>
     </div>';
     }else{
-        echo'
+        ?>
+        @forelse($images as $item)
+        <?php
+            $items =base64_encode($item);
+        ?>
+        <div class="row d-flex justify-content-center">
+            <div class="col">
+                <div class="card shadow-lg">
+                    <div class="card-header text-center">
+                        <h5 class="fw-bold">Buku Terlaris Bulan Ini</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-center">
+                            <img src="data:image/jpeg;base64,<?php echo ''.$items.''?>" class="img-thumbnail" width="300">
+                        </div>
+                        <hr>
+                        @foreach($judul as $juduls)
+                        <div class="row">
+                            <div class="card-header text-center">
+                                <h5 class="fw-bold">{{ $juduls }}</h5>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>';
+        @empty
         <h1>Hai '.$name.'</h1>';
+        @endforelse
+        <?php
     }
     echo'
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
