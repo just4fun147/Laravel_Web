@@ -2,6 +2,7 @@
 <?php
     $name = auth()->user()->name;
     $email = auth()->user()->email;
+    $image = base64_encode(auth()->user()->photo);
 ?>
 
 <head>
@@ -12,6 +13,8 @@
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="mt-5" style="clip-path:circle()" width="300px"
+                    src="data:image/jpeg;base64,<?php echo ''.$image.''?>">
                 <span class="font-weight-bold mt-2"><?php echo ''.$name.''?></span>
                 <span class="text-black-50"><?php echo ''.$email.''?></span><span>
                 </span>
