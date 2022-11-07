@@ -15,7 +15,7 @@ class BukuController extends Controller
      }
 
      public function create() { 
-        return view('buku.create',[
+        return view('perpus.page.addBuku',[
          "title" => "Add Buku"
         ]); 
      }
@@ -34,19 +34,31 @@ class BukuController extends Controller
 
      public function store(Request $request) { 
         //Validasi Formulir 
-        try{
-         $this->validate($request, [ 
-            'judul' => 'required', 
-            'jumlah' => 'required|digits', 
-            'gambar' => 'required' 
-        ]); 
-        //Fungsi Simpan Data ke dalam Database 
-        Buku::create([ 'judul' => $request->judul, 'jumlah' => $request->jumlah, 'gambar' => $request->gambar ]); 
-            
-        return redirect()->route('buku.index')->with('message','Add Buku success');
-        }catch(Exception $e){ 
-        return redirect('/')->with('error','Add Buku Fail');
-        } 
+        $validatedData = $request->validate([
+               'name' => 'required',
+               'jumlah' => 'required',
+         ]);
+
+         // ensure the request has a file before we attempt anything else.
+         if ($request->hasFile('file')) {
+
+               $request->validate([
+                  'image' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
+               ]);
+
+               // Save the file locally in the storage/public/ folder under a new folder named /product
+               $request->file->store('product', 'public');
+
+               // Store the record, using the new file hashname which will be it's new filename identity.
+               $buku = new Buku([
+                  "name" => $request->get('name'),
+                  "file_path" => $request->file->hashName(),
+                  "jumlah" => $request->get('jumlah')
+               ]);
+               $buku->save(); // Finally, save the record.
+               Buku::create($buku);
+         }
+        return redirect('/listBuku');
      }
 
      public function update(Request $request, $id){

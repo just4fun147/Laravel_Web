@@ -27,6 +27,15 @@ Route::controller(\App\Http\Controllers\DashboardController::class)->group(funct
     Route::get('/listMajalah', 'listMajalah');
     Route::get('/profile', 'profile');
 });
+
+Route::controller(\App\Http\Controllers\BukuController::class)->group(function () {
+    Route::get('/buku', 'create');
+    Route::post('/buku/{id}', 'edit');
+    Route::delete('/buku/{id}', 'destroy');
+    Route::post('/buku', 'store');
+    Route::put('/buku/{id}', 'update');
+});
+
 Route::controller(\App\Http\Controllers\LoginController::class)->group(function () {
     Route::get('/login', 'index')->middleware('guest');
     Route::post('/login', 'store');

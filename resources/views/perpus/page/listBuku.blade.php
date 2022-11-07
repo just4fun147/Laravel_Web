@@ -15,7 +15,11 @@
         <?php
         if($name=="admin"){
             echo'
-            <a href="../page/addBukuPage.php"> <i style="color: blue" class="fa fa-add fa-2x"></i> </a> </h4>';
+            <form action="/buku" method="get">
+                <button type="submit" style="border: 0; background-color: transparent;">
+                    <a> <i style="color: blue; background-color=transparent;" class="fa fa-add fa-2x"></i> </a>
+                </button>
+            </form>';
         }
         ?>
     </div>
@@ -53,20 +57,36 @@
                             if($name!="admin"){
                                 if($item['jumlah']!=0){
                                     echo' 
-                                    <a href="../page/peminjamanPage.php?id=' . $item['id'] . '"> <i style="color: blue" class="fas fa-book fa-2x"></i> 
+                                    <form action="|||route pinjam" method="post">
+                                        <button type="submit" style="border: 0; background-color: transparent;">
+                                            <a> <i style="color: blue" class="fas fa-book fa-2x"></i></a>
+                                        </button>
+                                    </form>
                                     </td>';
                                 }else{
                                     echo' 
-                                    <a href="../page/peminjamanPage.php?id=' . $item['id'] . '" onclick="return false;"> <i style="color: blue" class="fas fa-book fa-2x"></i>   
+                                    <form action="#" method="post">
+                                        <button type="submit" style="border: 0; background-color: transparent;">
+                                            <a> <i style="color: blue" class="fas fa-book fa-2x"></i></a>
+                                        </button>
+                                    </form>
                                     </td>';
                                 }
                             }
                             
                             if($name=="admin"){
                                 echo'
-                                <a href="../page/editBukuPage.php?id=' . $item['id'] . '"> <i style="color: red" class="fa fa-pencil fa-2x"></i> 
-                                <td> 
-                                <a href="../process/deleteBukuProcess.php?id=' . $item['id'] . '"> <i style="color: red" class="fa fa-trash fa-2x"></i> 
+                                <form action="/buku/{'.$item->id.'}" method="post">
+                                        <button type="submit" style="border: 0; background-color: transparent;">
+                                            <a> <i style="color: red" class="fa fa-pencil fa-2x"></i></a>
+                                        </button>
+                                </form> 
+                                <td>
+                                <form action="/buku/{'.$item->id.'}" method="delete">
+                                    <button type="submit" style="border: 0; background-color: transparent;">
+                                        <a> <i style="color: red" class="fa fa-trash fa-2x"></i></a>
+                                    </button>
+                                </form>
                                 </td>';
                             }
                             ?>
