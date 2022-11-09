@@ -14,3 +14,12 @@
 input{
     width: 100%;
 }
+
+th{
+    vertical-align: middle;
+}
+td{
+   
+    width: fit-content;
+    vertical-align: middle;
+}

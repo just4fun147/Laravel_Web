@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::resource('/feedback', \App\Http\Controllers\FeedbackController::class);
 Route::resource('/movie', \App\Http\Controllers\MovieController::class);
+Route::resource('/buku', \App\Http\Controllers\BukuController::class);
 Route::resource('/perpus', \App\Http\Controllers\PerpusController::class)->middleware('guest');
 Route::resource('/register', \App\Http\Controllers\RegisterController::class)->middleware('guest');
 
@@ -28,13 +29,6 @@ Route::controller(\App\Http\Controllers\DashboardController::class)->group(funct
     Route::get('/profile', 'profile');
 });
 
-Route::controller(\App\Http\Controllers\BukuController::class)->group(function () {
-    Route::get('/buku', 'create');
-    Route::post('/buku/{id}', 'edit');
-    Route::delete('/buku/{id}', 'destroy');
-    Route::post('/buku', 'store');
-    Route::put('/buku/{id}', 'update');
-});
 
 Route::controller(\App\Http\Controllers\LoginController::class)->group(function () {
     Route::get('/login', 'index')->middleware('guest');

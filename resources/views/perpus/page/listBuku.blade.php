@@ -14,8 +14,11 @@
         <h4 style="flex: 1 1 50%">LIST BUKU</h4>
         <?php
         if($name=="admin"){
+            ?>
+            <form action="{{ route('buku.create')}}" method="GET">  
+            <?php
             echo'
-            <form action="/buku" method="get">
+            
                 <button type="submit" style="border: 0; background-color: transparent;">
                     <a> <i style="color: blue; background-color=transparent;" class="fa fa-add fa-2x"></i> </a>
                 </button>
@@ -50,7 +53,7 @@
                 <tr> 
                     <th scope="row">{{ $no }}</th> 
                         <td>{{ $item->judul }}</td> 
-                        <td><img src="{{ asset('storage/'.$item->gambar) }}" style="width:20%"> </td>
+                        <td><img src="{{ asset('storage/'.$item->gambar) }}" style="width:150px"> </td>
                         <td>{{ $item->jumlah }}</td> 
                         <td>
                             <?php
@@ -75,19 +78,23 @@
                             }
                             
                             if($name=="admin"){
-                                echo'
-                                <form action="/buku/{'.$item->id.'}" method="post">
+                                echo'';
+                                    ?>
+                                    <form action="{{ route('buku.edit', $item->id) }}" method="put">
                                         <button type="submit" style="border: 0; background-color: transparent;">
                                             <a> <i style="color: red" class="fa fa-pencil fa-2x"></i></a>
                                         </button>
                                 </form> 
                                 <td>
-                                <form action="/buku/{'.$item->id.'}" method="delete">
+                                <form action="{{ route('buku.destroy', $item->id) }}" method="POST">  
+                                    @method('DELETE') 
+                                    @csrf
                                     <button type="submit" style="border: 0; background-color: transparent;">
                                         <a> <i style="color: red" class="fa fa-trash fa-2x"></i></a>
                                     </button>
                                 </form>
-                                </td>';
+                                </td>
+                                <?php
                             }
                             ?>
                 </tr>
