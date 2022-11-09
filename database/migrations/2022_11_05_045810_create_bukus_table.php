@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->integer('jumlah');
-            $table->binary('gambar');
+            $table->string('gambar')->nullable();
             $table->timestamps();
         });
     }

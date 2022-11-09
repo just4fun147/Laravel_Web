@@ -33,31 +33,19 @@ class BukuController extends Controller
      } 
 
      public function store(Request $request) { 
-        //Validasi Formulir 
+      $request->file('gambar')->store('buku-images', 'public');
         $validatedData = $request->validate([
-               'name' => 'required',
+               'judul' => 'required',
                'jumlah' => 'required',
+               'gambar' => 'required|image|file|max:2048|mimes:jpg,png,jpeg',
          ]);
 
          // ensure the request has a file before we attempt anything else.
-         if ($request->hasFile('file')) {
-
-               $request->validate([
-                  'image' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
-               ]);
-
-               // Save the file locally in the storage/public/ folder under a new folder named /product
-               $request->file->store('product', 'public');
-
-               // Store the record, using the new file hashname which will be it's new filename identity.
-               $buku = new Buku([
-                  "name" => $request->get('name'),
-                  "file_path" => $request->file->hashName(),
-                  "jumlah" => $request->get('jumlah')
-               ]);
-               $buku->save(); // Finally, save the record.
-               Buku::create($buku);
-         }
+         if( $request->hasFile('gambar')) {
+            $path = $request->file('gambar')->store('buku-images');
+            $validatedData['gambar'] =$path;
+        }
+         Buku::create($validatedData);
         return redirect('/listBuku');
      }
 

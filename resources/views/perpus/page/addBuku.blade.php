@@ -11,7 +11,7 @@
     </div>
     <hr>
     <table>
-        <form action="/buku" method="post" enctype="multipart/form-data">
+        <form action="/buku" method="post" enctype="multipart/form-data" enctype="multipart/form-data">
             @csrf
             <tr>
                 <td>Nama Buku</td>
@@ -20,9 +20,14 @@
             <tr></tr>
             <tr>
                 <td>
-                    <input class="form-control mt-2 mb-2" type="text" id="judul" name="judul"
-                        placeholder="Judul Buku" />
+                    <input class="form-control mt-2 mb-2 @error('judul') is-invalid @enderror" type="text" id="judul" name="judul"
+                    value="{{ old('judul') }}" placeholder="Judul Buku" />
                 </td>
+                @error('judul')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                 @enderror
             </tr>
             <tr>
                 <td>Gambar</td>
@@ -31,8 +36,13 @@
             <tr></tr>
             <tr>
                 <td>
-                    <input type="file" accept="image/jpeg" class="form-control mt-2 mb-2" id="gambar" name="gambar" required>
+                    <input type="file" accept="image/jpeg" class="form-control mt-2 mb-2 @error('gambar') is-invalid @enderror" id="gambar" name="gambar" required>
                 </td>
+                @error('gambar')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                 @enderror
             </tr>
             <tr>
                 <td>Jumlah</td>
@@ -41,9 +51,14 @@
             <tr></tr>
             <tr>
                 <td>
-                    <input class="form-control mt-2 mb-2" type="number" id="jumlah" name="jumlah"
-                        placeholder="Jumlah Buku" />
+                    <input class="form-control mt-2 mb-2 @error('jumlah') is-invalid @enderror" type="number" id="jumlah" name="jumlah"
+                        placeholder="Jumlah Buku" value="{{ old('jumlah') }}"/>
                 </td>
+                @error('jumlah')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                 @enderror
             </tr>
             <tr>
                 <td>

@@ -50,7 +50,7 @@
                 <tr> 
                     <th scope="row">{{ $no }}</th> 
                         <td>{{ $item->judul }}</td> 
-                        <td> nanti blm ada </td>
+                        <td><img src="{{ asset('storage/'.$item->gambar) }}" style="width:20%"> </td>
                         <td>{{ $item->jumlah }}</td> 
                         <td>
                             <?php
