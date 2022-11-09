@@ -37,6 +37,7 @@ Route::controller(\App\Http\Controllers\LoginController::class)->group(function 
 });
 Route::controller(\App\Http\Controllers\PeminjamanController::class)->group(function () {
     Route::post('/pinjam', 'pinjam');
+    Route::post('/balik', 'balik');
 });
 
 Route::group(['middleware' => 'auth:api'], function(){

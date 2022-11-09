@@ -1,7 +1,8 @@
 @include('perpus.partials.sidebar')
 <?php
+use App\Models\buku;
     $name = auth()->user()->name;
-    $id = DB::table('users')->where('name',$name);
+    $id = auth()->user()->id;
     $no=1;
     
 ?>
@@ -43,28 +44,31 @@
                         $date = $data['pengembalian'];
                         echo ' -->
                         @forelse($peminjaman as $item)
-                        <?php
-                            
-                            $temp = DB::table('peminjamen')->where('peminjam_id',$id)->pluck('buku_id');
-                            $bukus = DB::table('bukus')->where('id', $temp)->pluck("judul");
-                                
-                        ?> 
-                            <tr> 
-                            <th scope="row">{{ $no }}</th>
-                            @foreach($bukus as $buku) 
-                            <td>{{$buku}}</td> 
-                            <td>gambar blm</td> 
-                            <td>{{ $item-status }}</td> 
-                            <td>{{ $item->pengembalian }}</td> 
-                            <td>
+                            <?php
+                            $buku = Buku::find($item->buku_id);
+                            ?>
+                                <tr> 
+                                <th scope="row">{{ $no }}</th>
+                                <td>{{ $buku->judul }}</td> 
+                                <td><img src="{{ asset('storage/'.$buku->gambar) }}" style="width:150px"></td> 
+                                <td>{{ $item->status }}</td> 
+                                <td>{{ $item->pengembalian }}</td> 
+                                <td>
                                 <?php
-                                     if($item['status']=="Dipinjam"){
-                                        echo'
-                                        <a href="../process/kembaliProcess.php?id=' . $data['id'] . '"  onClick="return confirm ( \'Apakah ingin mengembalikan buku ini? \')"> <i style="color: green" class="fa fa-refresh fa-2x"></i> 
-                                        </td>'; 
-                                    }
+                                    if($item->status=="Dipinjam"){
+                                        ?>
+                                        <form action="/balik" method="post" onSubmit="confirm( \'Apakah ingin mengembalikan buku ini? \')">
+                                            <input type="text" id="id" name="id" value="{{ $item->id }}" hidden/>
+                                            @csrf
+                                        <?php
+                                            echo'
+                                            <button type="submit" style="border: 0; background-color: transparent;">
+                                                    <a> <i style="color: blue" class="fa fa-refresh fa-2x"></i></a>
+                                                </button>
+                                            </form>
+                                            </td>';
+                                }
                                 ?>
-                            @endforeach
                            
                     @empty
                     <p>Belum ada peminjaman</p>

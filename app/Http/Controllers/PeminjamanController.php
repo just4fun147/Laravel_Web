@@ -30,4 +30,17 @@ class PeminjamanController extends Controller
          $temp->save();
         return redirect('/listBuku');
     }
+
+    public function balik(Request $request) { 
+        $date = date('Y-m-d');
+        $temp = Peminjaman::find($request->id);
+        $buku = Buku::find($temp->buku_id);
+        $temp->status = 'Dikembalikan';
+        $temp->pengembalian = $date;
+        $temp->save();
+
+        $buku->jumlah++;
+        $buku->save();
+        return redirect('/listPeminjaman');
+    }
 }
