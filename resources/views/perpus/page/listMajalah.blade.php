@@ -68,11 +68,23 @@
                         
                         
                         if($name=="admin"){
-                            echo'
-                            <a href="../page/editMajalahPage.php?id=' . $item['id'] . '"> <i style="color: red" class="fa fa-pencil fa-2x"></i> 
-                            <td> 
-                            <a href="../process/deleteMajalahProcess.php?id=' . $item['id'] . '"> <i style="color: red" class="fa fa-trash fa-2x"></i> 
-                            </td>';
+                            echo'';
+                            ?>
+                            <form action="{{ route('majalah.edit', $item->id) }}" method="put">
+                                <button type="submit" style="border: 0; background-color: transparent;">
+                                    <a> <i style="color: red" class="fa fa-pencil fa-2x"></i></a>
+                                </button>
+                            </form> 
+                            <td>
+                            <form action="{{ route('majalah.destroy', $item->id) }}" method="POST">  
+                                @method('DELETE') 
+                                @csrf
+                                <button type="submit" style="border: 0; background-color: transparent;">
+                                    <a> <i style="color: red" class="fa fa-trash fa-2x"></i></a>
+                                </button>
+                            </form>
+                            </td>
+                            <?php
                         }
                             ?>
                 </tr>
