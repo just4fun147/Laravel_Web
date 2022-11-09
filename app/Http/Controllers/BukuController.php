@@ -69,4 +69,6 @@ class BukuController extends Controller
         $temp->save();
         return redirect('/listBuku')->with('message','Edit Buku success');
      }
+
+     
 }

@@ -14,8 +14,15 @@
         <h4 style="flex: 1 1 50%">LIST MAJALAH</h4>
         <?php
         if($name=="admin"){
+            ?>
+            <form action="{{ route('majalah.create')}}" method="GET">  
+            <?php
             echo'
-            <a href="../page/addBukuPage.php"> <i style="color: blue" class="fa fa-add fa-2x"></i> </a> </h4>';
+            
+                <button type="submit" style="border: 0; background-color: transparent;">
+                    <a> <i style="color: blue; background-color=transparent;" class="fa fa-add fa-2x"></i> </a>
+                </button>
+            </form>';
         }
         ?>
     </div>

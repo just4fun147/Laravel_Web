@@ -59,8 +59,11 @@
                             <?php
                             if($name!="admin"){
                                 if($item['jumlah']!=0){
+                                    ?>
+                                    <form action="{{ route('peminjaman.store')}}" method="post">
+                                    @csrf
+                                    <?php
                                     echo' 
-                                    <form action="|||route pinjam" method="post">
                                         <button type="submit" style="border: 0; background-color: transparent;">
                                             <a> <i style="color: blue" class="fas fa-book fa-2x"></i></a>
                                         </button>

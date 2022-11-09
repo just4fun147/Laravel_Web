@@ -9,13 +9,13 @@ class MajalahController extends Controller
     public function index(){
         $majalah = Majalah::paginate(10);
 
-        return view('majalah.index',compact('majalah'),[
+        return view('perpus.page.listMajalah',compact('majalah'),[
             "title" => "Books"
         ]);
      }
 
      public function create() { 
-        return view('majalah.create',[
+        return view('perpus.page.addMajalah',[
          "title" => "Add Majalah"
         ]); 
      }
@@ -29,7 +29,7 @@ class MajalahController extends Controller
 
      public function destroy($id) { 
         Majalah::destroy($id);
-        return redirect()->route('majalah.index')->with('message','Delete Majalah success');
+        return redirect('/listMajalah')->with('message','Delete Majalah success');
      } 
 
      public function store(Request $request) { 
@@ -39,12 +39,17 @@ class MajalahController extends Controller
             'judul' => 'required', 
             'topik' => 'required|regex:/^[\pL\s\-]+$/u',
             'jumlah_halaman' => 'required:digits',
-            'harga' => 'required|numeric'
+            'harga' => 'required'
         ]); 
         //Fungsi Simpan Data ke dalam Database 
-        Majalah::create([ 'judul' => $request->judul, 'topik' => $request->topik, 'jumlah_halaman' => $request->jumlah_halaman ]); 
+        Majalah::create([ 
+         'judul' => $request->judul, 
+         'topik' => $request->topik, 
+         'jumlah_halaman' => $request->jumlah_halaman, 
+         'harga' => $request->harga
+      ]); 
             
-        return redirect()->route('majalah.index')->with('message','Add Majalah success');
+        return redirect('/listMajalah')->with('message','Add Majalah success');
         }catch(Exception $e){ 
         return redirect('/')->with('error','Add Majalah Fail');
         } 
