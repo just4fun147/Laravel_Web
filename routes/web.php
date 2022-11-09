@@ -16,7 +16,6 @@ Route::resource('/feedback', \App\Http\Controllers\FeedbackController::class);
 Route::resource('/movie', \App\Http\Controllers\MovieController::class);
 Route::resource('/buku', \App\Http\Controllers\BukuController::class);
 Route::resource('/majalah', \App\Http\Controllers\MajalahController::class);
-Route::resource('/peminjaman', \App\Http\Controllers\PeminjamanController::class);
 Route::resource('/perpus', \App\Http\Controllers\PerpusController::class)->middleware('guest');
 Route::resource('/register', \App\Http\Controllers\RegisterController::class)->middleware('guest');
 
@@ -35,6 +34,9 @@ Route::controller(\App\Http\Controllers\LoginController::class)->group(function 
     Route::get('/login', 'index')->middleware('guest');
     Route::post('/login', 'store');
     Route::post('/logout', 'logout');
+});
+Route::controller(\App\Http\Controllers\PeminjamanController::class)->group(function () {
+    Route::post('/pinjam', 'pinjam');
 });
 
 Route::group(['middleware' => 'auth:api'], function(){

@@ -10,12 +10,24 @@ class PeminjamanController extends Controller
 {
     public function index(){
         $peminjaman = Peminjaman::paginate(10);
-        return view('perpus.page.listPeminjaman}',compact('peminjaman'), [
+        return view('perpus.page.listPeminjaman',compact('peminjaman'), [
             'title' => 'List Peminjaman',
             'active' => 'List Peminjaman'
         ]);
     }
 
-    public function store(Request $request) { 
-
+    public function pinjam(Request $request) { 
+        $date = date('Y-m-d',strtotime("+7 days"));
+        $id = auth()->user()->id;
+        Peminjaman::create([ 
+            'buku_id' => $request->id,
+            'status' => 'Dipinjam',
+            'pengembalian' => $date,
+            'peminjam_id' => $id
+         ]); 
+         $temp = Buku::find($request->id);
+         $temp->jumlah--;
+         $temp->save();
+        return redirect('/listBuku');
+    }
 }

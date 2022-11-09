@@ -5,7 +5,7 @@ $name = auth()->user()->name;
 $totalDataBuku = DB::table('bukus')->count();
 $totalDataPeminjaman = DB::table('peminjamen')->where('status','Dipinjam')->count();
 $totalMajalah = DB::table('majalahs')->count();
-$totalPembelian = DB::table('pembelians')->where('status','Dipinjam')->count();
+$totalPembelian = DB::table('pembelians')->where('status','Dibayar')->count();
 if($totalDataBuku!=0 && $totalDataPeminjaman!=0){
     $tempCommon= DB::table('peminjamen')->select('buku_id')->groupBy('buku_id')->orderByRaw('COUNT(*) DESC')->limit(1)->pluck('buku_id');
     $images = DB::table('bukus')->where('id',$tempCommon)->pluck('gambar');
@@ -133,7 +133,6 @@ echo'
         ?>
         @forelse($images as $item)
         <?php
-            $items =base64_encode($item);
         ?>
         <div class="row d-flex justify-content-center">
             <div class="col">
@@ -143,7 +142,7 @@ echo'
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-center">
-                            <img src="data:image/jpeg;base64,<?php echo ''.$items.''?>" class="img-thumbnail" width="300">
+                            <img src="{{ asset('storage/'.$item) }}" class="img-thumbnail" width="300">
                         </div>
                         <hr>
                         @foreach($judul as $juduls)

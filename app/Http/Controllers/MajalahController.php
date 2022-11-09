@@ -44,11 +44,11 @@ class MajalahController extends Controller
         ]); 
         //Fungsi Simpan Data ke dalam Database 
         Majalah::create([ 
-         'judul' => $request->judul, 
-         'topik' => $request->topik, 
-         'jumlah_halaman' => $request->jumlah_halaman, 
-         'harga' => $request->harga
-      ]); 
+            'judul' => $request->judul, 
+            'topik' => $request->topik, 
+            'jumlah_halaman' => $request->jumlah_halaman, 
+            'harga' => $request->harga
+         ]); 
             
         return redirect('/listMajalah')->with('message','Add Majalah success');
         }catch(Exception $e){ 

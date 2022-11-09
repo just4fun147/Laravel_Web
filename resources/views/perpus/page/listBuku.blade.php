@@ -60,7 +60,8 @@
                             if($name!="admin"){
                                 if($item['jumlah']!=0){
                                     ?>
-                                    <form action="{{ route('peminjaman.store')}}" method="post">
+                                    <form action="/pinjam" method="post">
+                                    <input type="text" id="id" name="id" value="{{ $item->id }}" hidden/>
                                     @csrf
                                     <?php
                                     echo' 
@@ -70,8 +71,11 @@
                                     </form>
                                     </td>';
                                 }else{
+                                    ?>
+                                    <form action="" onSubmit="alert('Buku Sudah Habis')" >
+                                    <?php
                                     echo' 
-                                    <form action="#" method="post">
+                                    
                                         <button type="submit" style="border: 0; background-color: transparent;">
                                             <a> <i style="color: blue" class="fas fa-book fa-2x"></i></a>
                                         </button>
