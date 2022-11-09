@@ -21,8 +21,9 @@ class MajalahController extends Controller
      }
 
      public function edit($id) { 
-        return view('majalah.edit', [
-         'id' => $id,
+      $majalah = Majalah::find($id);
+        return view('perpus.page.editMajalah ', [
+         'majalah' => $majalah,
          'title' => "Edit Majalah"
         ]);
      } 
@@ -57,15 +58,17 @@ class MajalahController extends Controller
 
      public function update(Request $request, $id){
         $this->validate($request, [ 
-            'judul' => 'required|regex:/^[\pL\s\-]+$/u', 
-            'jumlah' => 'required|digits', 
-            'gambar' => 'required' 
+         'judul' => 'required', 
+         'topik' => 'required|regex:/^[\pL\s\-]+$/u',
+         'jumlah_halaman' => 'required:digits',
+         'harga' => 'required'
         ]); 
-        $temp = Buku::find($id);
+        $temp = Majalah::find($id);
         $temp->judul = $request->judul;
-        $temp->jumlah = $request->jumlah;
-        $temp->gambar = $request->gambar;
+        $temp->topik = $request->topik;
+        $temp->jumlah_halaman = $request->jumlah_halaman;
+        $temp->harga = $request->harga;
         $temp->save();
-        return redirect()->route('buku.index')->with('message','Edit Buku success');
+        return redirect('/listMajalah')->with('message','Edit Buku success');
      }
 }
