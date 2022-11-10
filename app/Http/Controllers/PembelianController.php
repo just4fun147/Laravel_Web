@@ -17,4 +17,14 @@ class PembelianController extends Controller
          ]); 
         return redirect('/listMajalah');
     }
+    public function bayar(Request $request) { 
+        $temp = Pembelian::find($request->id);
+        $temp->status = 'Lunas';
+        $temp->save();
+        return redirect('/listPembelianMajalah');
+    }
+    public function batal(Request $request) { 
+        Pembelian::destroy($request->id);
+        return redirect('/listPembelianMajalah');
+    }
 }

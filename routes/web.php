@@ -41,6 +41,8 @@ Route::controller(\App\Http\Controllers\PeminjamanController::class)->group(func
 });
 Route::controller(\App\Http\Controllers\PembelianController::class)->group(function () {
     Route::post('/beli', 'beli');
+    Route::post('/bayar', 'bayar');
+    Route::post('/batal', 'batal');
 });
 
 Route::group(['middleware' => 'auth:api'], function(){
