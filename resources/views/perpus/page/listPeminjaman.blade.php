@@ -4,6 +4,7 @@ use App\Models\buku;
     $name = auth()->user()->name;
     $id = auth()->user()->id;
     $no=1;
+    $peminjaman = DB::table('peminjamen')->where('peminjam_id',$id)->get();
     
 ?>
 

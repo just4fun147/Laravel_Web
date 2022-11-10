@@ -25,8 +25,7 @@ class DashboardController extends Controller
         ]);
     }
     public function listPeminjam(){
-        $peminjaman = Peminjaman::paginate(10);
-        return view('perpus.page.listPeminjam', compact('peminjaman'), [
+        return view('perpus.page.listPeminjam',  [
             'title' => 'List Peminjam',
             'active' => 'List Peminjam'
         ]);
