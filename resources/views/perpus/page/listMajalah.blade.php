@@ -61,9 +61,17 @@
                         <td>
                             <?php
                             if($name!="admin"){
-                                echo' 
-                                <a href="../process/pembelianMajalahProcess.php?id=' . $item['id'] . '"> <i style="color: blue" class="fa-solid fa-cart-shopping fa-2x"></i>  
-                                </td>';
+                                ?>
+                                <form action="/beli" method="post">
+                                    <input type="text" id="id" name="id" value="{{ $item->id }}" hidden/>
+                                    @csrf
+                                    <?php
+                                    echo' 
+                                        <button type="submit" style="border: 0; background-color: transparent;">
+                                            <a> <i style="color: blue" class="fas fa-book fa-2x"></i></a>
+                                        </button>
+                                    </form>
+                                    </td>';
                             }
                         
                         
