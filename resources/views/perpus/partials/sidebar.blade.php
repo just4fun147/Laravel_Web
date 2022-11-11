@@ -72,13 +72,21 @@
             <div class="d-flex">
                 <div class="side-bar">
                     <div class="menu">
-                        <div class="content-menu">
-                            <form action="/profile" method="get">
-                                <button type="submit" style="border: 0; background-color: #1A374D; margin-top:15px;">
-                                    <i class="fa fa-user"></i>
-                                    <a style="font-weight:600; font-size:20px; color:#b1d0e0">'.$name.'</a>
-                                </button>
-                            </form>
+                        <div class="content-menu">';
+                            if($name!='admin'){
+                                echo'
+                                <form action="/profile" method="get">
+                                    <button type="submit" style="border: 0; background-color: #1A374D; margin-top:15px;">
+                                        <i class="fa fa-user"></i>
+                                        <a style="font-weight:600; font-size:20px; color:#b1d0e0">'.$name.'</a>
+                                    </button>
+                                </form>';
+                            }else{
+                                echo'
+                                <i class="fa fa-user" style=" margin-top:15px;"></i>
+                                <a style="font-weight:600; font-size:20px; color:#b1d0e0">'.$name.'</a>';
+                            }
+                            echo'
                         </div>
                     </div>
                     <hr style="color:#FFFFFF; height:5px;">

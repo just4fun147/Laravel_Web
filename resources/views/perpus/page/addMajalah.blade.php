@@ -62,7 +62,7 @@
                  @enderror
             </tr>
             <tr>
-                <td>Jumlah Halaman</td>
+                <td>Harga Majalah</td>
             </tr>
             <tr></tr>
             <tr></tr>

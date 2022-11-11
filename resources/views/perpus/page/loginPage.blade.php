@@ -48,9 +48,15 @@
                 <p class="mt-2 mb-0">Don’t have an account yet?
                     <a href="/register" class="textprimary">Click here!</a>
                 </p>
+                <p class="mt-2 mb-0">To log in as Admin:</p>
+                <p class="mt-2 mb-0">Email : admin@gmail.com</p>
+                <p class="mt-2 mb-0">Password: 123aA!</p>
             </div>
         </div>
+       
     </div>
+        
+
 
     <script>
         const togglePassword = document.querySelector("#togglePassword");

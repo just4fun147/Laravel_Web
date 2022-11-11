@@ -8,9 +8,15 @@
             <form action="/register" method="post" enctype="multipart/form-data">
                 @csrf
                 <label for="exampleInputEmail1" class="form-label">Name</label>
+                <p style="font-size: 15px; opacity:0.4">Nama Maksimal 60 karakter dan tidak boleh admin</p>
                 <div class="mb-3">
-                    <input class="form-control @error('nama') is-invalid @enderror" id="name" name="name" aria-describedby="emailHelp" required value="{{ old('name') }}">
+                    <input class="form-control @error('name') is-invalid @enderror" id="name" name="name" aria-describedby="emailHelp" required value="{{ old('name') }}">
                 </div>
+                @error('name')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
                 <label for="exampleInputEmail1" class="form-label">Email</label>
                 <div class="mb-3"> 
                     <input class="form-control @error('email') is-invalid @enderror" id="email" name="email" aria-describedby="emailHelp" value="{{ old('email') }}">
@@ -20,7 +26,17 @@
                     </div>
                     @enderror
                 </div>
+                <label for="exampleInputEmail1" class="form-label">Foto</label>
+                <div class="mb-3">
+                    <input type="file" accept="image/jpeg" class="form-control mt-2 mb-2 @error('image') is-invalid @enderror" id="image" name="image" required>
+                </div>
+                @error('image')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
                 <label for="exampelInputEmail1">Password</label>
+                <p style="font-size: 15px; opacity:0.4">Password minimal 6 karakter terdiri dari huruf besar, kecil, angka, dan simbol</p>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
                         <i class="fa fa-eye-slash" id="togglePassword" 
@@ -33,10 +49,6 @@
                     </div>
                     @enderror
                 </div>
-            <!--    <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Photo</label>
-                    <input type="file" accept="image/jpeg" class="form-control" id="password" name="photo">
-                </div> -->
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-primary" name="register"
                         style="background-color:#ff4e44;">Register</button>
@@ -54,13 +66,13 @@
     const password = document.querySelector("#password");
 
     togglePassword.addEventListener("click", function () {
-    
-    // toggle the type attribute
-    const type = password.getAttribute("type") === "password" ? "text" : "password";
-    password.setAttribute("type", type);
-    // toggle the eye icon
-    this.classList.toggle('fa-eye');
-    this.classList.toggle('fa-eye-slash');
-});
+        
+        // toggle the type attribute
+        const type = password.getAttribute("type") === "password" ? "text" : "password";
+        password.setAttribute("type", type);
+        // toggle the eye icon
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+    });
 </script>
 @endsection

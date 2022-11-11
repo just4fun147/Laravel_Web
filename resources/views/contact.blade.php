@@ -12,4 +12,5 @@
         <p class="number">+6281226775044</p>
         <p class="asap">I'll get in touch asap. I Promised</p>
     </div>
+    
 @endsection

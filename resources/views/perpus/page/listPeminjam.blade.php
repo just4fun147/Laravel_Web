@@ -1,9 +1,5 @@
 @include('perpus.partials.sidebar')
-<?php
-    $name = auth()->user()->name;
-    $no=1;
-    
-?>
+
 <head>
     <title>List Peminjam</title>
 </head>
@@ -26,44 +22,29 @@
             </tr>
         </thead>
         <tbody>
-           <!--     while ($data = mysqli_fetch_assoc($query)) {
-                    $userId= $data['peminjam_id'];
-                    $query2 = mysqli_query($con, "SELECT * FROM users WHERE id=$userId") or
-                    die(mysqli_error($con));
-                    $user=mysqli_fetch_assoc($query2);
-                    $book= $data['buku_id'];
-                    $query3 = mysqli_query($con, "SELECT * FROM buku WHERE id=$book") or
-                    die(mysqli_error($con));
-                    if(mysqli_num_rows($query3)!=0){
-                        $buku=mysqli_fetch_assoc($query3);
-                        $judul = $buku['judul'];
-                    }else{
-                        $judul = "Buku Sudah Dihapus";
-                    } -->
-                    @forelse($peminjaman as $item)
-                    <?php
-                        $bukus = DB::table('bukus')->where('id',$item->buku_id)->pluck("judul");
-                        $peminjams = DB::table('users')->where('id', $item->peminjam_id)->pluck('name'); 
-                            
-                    ?> 
-                    <tr> 
-                        <th scope="row">{{ $no }}</th> 
-                        @foreach ($peminjams as $peminjam)
-                            <td>{{ $peminjam }}</td>
-                        @endforeach 
-                        @foreach ($bukus as $buku)
-                            <td>{{ $buku }}</td>
-                        @endforeach
-                        <td>{{ $item->pengembalian }}</td> 
-                    </tr>
-                    <?php
-                            $no++;
-                        ?>
-                    @empty
-                        <tr> 
-                            <td colspan="7"> Belum Ada Peminjam </td> 
-                        </tr>
-                    @endforelse    
+            @forelse($peminjaman as $item)
+                @foreach($peminjams as $p)
+                    @foreach($buku as $b)
+                        @if($item->peminjam_id=$p->id)
+                            @if($item->buku_id=$b->id)
+                                <tr>
+                                    <th scope="row">{{ $no }}</th> 
+                                    <td>{{ $p->name }}</td>
+                                    <td>{{ $b->judul }}</td>
+                                    <td>{{ $item->pengembalian }}</td>
+                                </tr> 
+                            @endif
+                        @endif
+                    @endforeach
+                @endforeach
+                @php
+                $no++;
+                @endphp
+            @empty
+                <tr> 
+                    <td colspan="7"> Belum Ada Peminjam </td> 
+                </tr>
+            @endforelse    
         </tbody>
     </table>
 </div>

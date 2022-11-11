@@ -14,8 +14,8 @@
             
         </div>
     </div>
-    <div class="left">
-    </div>
+
+    <div class="left"></div>
     <div class="right2">
         <div class="images">
             <img src="img/panduwindito.png" alt="Pandu Windito" height="670px" >
@@ -86,8 +86,7 @@
                     <p class="desc">Geo Location</p>
                 </div>
             </div>
-        </div>
-        
+        </div>  
     </div>
     
     <div class="slides">

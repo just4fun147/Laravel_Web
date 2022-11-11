@@ -1,9 +1,5 @@
 @include('perpus.partials.sidebar')
-<?php
-    $name = auth()->user()->name;
-    $email = auth()->user()->email;
-    $image = base64_encode(auth()->user()->photo);
-?>
+
 
 <head>
     <title>Profile</title>
@@ -13,10 +9,9 @@
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="mt-5" style="clip-path:circle()" width="300px"
-                    src="data:image/jpeg;base64,<?php echo ''.$image.''?>">
-                <span class="font-weight-bold mt-2"><?php echo ''.$name.''?></span>
-                <span class="text-black-50"><?php echo ''.$email.''?></span><span>
+                <span><img class="mt-5" src="{{ asset('storage/'.$user->image) }}" style="clip-path:circle(); width:300px"></span>
+                <span class="font-weight-bold mt-2">{{ $user->name }}</span>
+                <span class="text-black-50">{{ $user->email }}</span><span>
                 </span>
             </div>
         </div>
@@ -29,44 +24,27 @@
 
                 <form action="../process/editProfilProcess.php" method="post" enctype="multipart/form-data"
                     class="was-validated">
-                    <?php if($name != "admin") {
-                        echo'
                         <div class="row mt-3">
-                        <div class="col-md-12">
-                            <label class="labels">Name User</label>
-                            <input type="text" class="form-control" placeholder="Enter Name" id="name" name="name"
-                                value="'.$name.'" required>
+                            <div class="col-md-12">
+                                <label class="labels">Name User</label>
+                                <input type="text" class="form-control" placeholder="Enter Name" id="name" name="name"
+                                    value="{{ $user->name }}" required>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                                <label class="labels">Email ID</label>
+                                <input type="text" class="form-control" placeholder="Enter email" id="email" name="email"
+                                    value="{{ $user->email }}" required>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                                <label class="labels">Profil Picture</label>
+                            <input type="file" accept="image/jpeg" class="form-control" name="gambar" required>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                                <label class="labels">Change Password</label>
+                                <input type="password" class="form-control" placeholder="Enter password" id="password"
+                                name="password" required>
+                            </div>
                         </div>
-                        <div class="col-md-12 mt-3">
-                            <label class="labels">Email ID</label>
-                            <input type="text" class="form-control" placeholder="Enter email" id="email" name="email"
-                                value="'.$email.'" required>
-                        </div>';
-                    }else{
-                        echo'
-                        <div class="row mt-3">
-                        <div class="col-md-12">
-                            <label class="labels">Name User</label>
-                            <input type="text" class="form-control" placeholder="name" id="name" name="name"
-                                value="'.$name.'" disabled>
-                        </div>
-                        <div class="col-md-12 mt-3">
-                            <label class="labels">Email ID</label>
-                            <input type="text" class="form-control" placeholder="name" id="email" name="email"
-                                value="'.$email.'" disabled>
-                        </div>';
-                    }
-                    ?>
-                    <div class="col-md-12 mt-3">
-                        <label class="labels">Profil Picture</label>
-                        <input type="file" accept="image/jpeg" class="form-control" name="gambar" required>
-                    </div>
-                    <div class="col-md-12 mt-3">
-                        <label class="labels">Change Password</label>
-                        <input type="password" class="form-control" placeholder="Enter password" id="password"
-                            name="password" required>
-                    </div>
-            </div>
 
             <div class="row">
                 <div class="d-grid gap-2 col-md-3 mt-3">

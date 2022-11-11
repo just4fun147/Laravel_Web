@@ -1,9 +1,5 @@
 @include('perpus.partials.sidebar')
-<?php
-    $name = auth()->user()->name;
-    $no=1;
-    
-?>
+
 <head>
     <title>List Pembeli</title>
 </head>

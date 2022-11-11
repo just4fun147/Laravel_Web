@@ -32,11 +32,14 @@
             <tr>
                 <td>Gambar</td>
             </tr>
-            <tr></tr>
-            <tr></tr>
             <tr>
                 <td>
-                    <input type="file" accept="image/jpeg" class="form-control mt-2 mb-2 @error('gambar') is-invalid @enderror" id="gambar" name="gambar" required>
+                    <img class="img-preview img-fluid" style="width: 150px" hidden>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" accept="image/jpeg" class="form-control mt-2 mb-2 @error('gambar') is-invalid @enderror" id="gambar" name="gambar" required onchange="previewImage()">
                 </td>
                 @error('gambar')
                 <div class="invalid-feedback">
@@ -74,6 +77,22 @@
 </aside>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+<script>
+    function previewImage(){
+        const image = document.querySelector('#gambar');
+        const preview = document.querySelector('.img-preview');
+
+        preview.style.display = 'block';
+        preview.removeAttribute("hidden");
+        
+        const ofReader = new FileReader();
+        ofReader.readAsDataURL(image.files[0]);
+        ofReader.onload = function(oFREvent){
+            preview.src=oFREvent.target.result;
+        } 
+    }
+    
 </script>
 </body>
 
