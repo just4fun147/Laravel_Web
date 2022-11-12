@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <span><img class="mt-5" src="{{ asset('storage/'.$user->image) }}" style="clip-path:circle(); width:300px"></span>
+                <span><img class="img-preview img-fluid mt-5" src="{{ asset('storage/'.$user->image) }}" style="clip-path:circle(); width:300px"></span>
                 <span class="font-weight-bold mt-2">{{ $user->name }}</span>
                 <span class="text-black-50">{{ $user->email }}</span><span>
                 </span>
@@ -48,7 +48,7 @@
                             </div>
                             <div class="col-md-12 mt-3">
                                 <label class="labels">Profil Picture</label>
-                                <input class="@error('gambar') is-invalid @enderror" type="file" accept="image/jpeg" class="form-control" name="image" id="image" >
+                                <input class="@error('image') is-invalid @enderror" type="file" accept="image/jpeg" class="form-control" name="image" id="image" value="{{ $user->image }}" onchange="previewImage()">
                                 @error('image')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -88,6 +88,20 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
 </script>
-</body>
+<script>
+    function previewImage(){
+        const image = document.querySelector('#image');
+        const preview = document.querySelector('.img-preview');
 
+        preview.style.display = 'block';
+        preview.removeAttribute("hidden");
+        
+        const ofReader = new FileReader();
+        ofReader.readAsDataURL(image.files[0]);
+        ofReader.onload = function(oFREvent){
+            preview.src=oFREvent.target.result;
+        } 
+    }
+</script>
+</body>
 </html>

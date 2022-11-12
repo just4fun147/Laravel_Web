@@ -30,12 +30,12 @@
             </tr>
         </thead>
         <tbody>
-            @forelse ($pembelian as $item)
+            @forelse($pembelian as $item)
                 @php
                     $no++;
                 @endphp
                 @foreach($majalahs as $majalah)
-                    @if($majalah->id= $item->majalah_id )
+                    @if($majalah->id== $item->majalah_id)
                         <tr> 
                             <th scope="row">{{ $no }}</th> 
                             <td>{{ $majalah->judul }}</td>  
@@ -46,7 +46,7 @@
                             @if($item->status!="Lunas")
                                 <td>
                                     <form action="/bayar" method="post">
-                                        <input type="text" id="id" name="id" value="{{ $item }}" hidden/>
+                                        <input type="text" id="id" name="id" value="{{ $item->id }}" hidden/>
                                         @csrf
                                         <button type="submit" style="border: 0; background-color: transparent;">
                                             <a> <i style="color: green" class="fa fa-money fa-2x"></i></a>
@@ -55,7 +55,7 @@
                                     </td>
                                     <td>
                                         <form action="/batal" method="POST">  
-                                            <input type="text" id="id" name="id" value="{{ $item }}" hidden/>
+                                            <input type="text" id="id" name="id" value="{{ $item->id }}" hidden/>
                                             @csrf
                                             <button type="submit" style="border: 0; background-color: transparent;">
                                                 <a> <i style="color: red" class="fa fa-times fa-2x"></i></a>
