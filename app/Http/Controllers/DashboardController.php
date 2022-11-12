@@ -74,7 +74,7 @@ class DashboardController extends Controller
 
     public function listPembelianMajalah(){
         $user = auth()->user();
-        $no=1;
+        $no=0;
         $pembelian = Pembelian::where('pembeli_id',$user->id)->paginate(10);
         $majalahs = Majalah::all();
         return view('perpus.page.listPembelianMajalah', compact('user','no','pembelian','majalahs'), [
@@ -100,5 +100,7 @@ class DashboardController extends Controller
             'active' => 'Profile'
         ]);
     }
+    
+
 
 }

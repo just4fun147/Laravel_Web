@@ -22,27 +22,48 @@
                     <h4 class="text-center"><b>CHANGE PROFILE</b></h4>
                 </div>
 
-                <form action="../process/editProfilProcess.php" method="post" enctype="multipart/form-data"
-                    class="was-validated">
+                <form action="{{ route('user.destroy', $user->id) }}" method="POST" enctype="multipart/form-data">
+                    @method('put')
+                    @csrf
                         <div class="row mt-3">
                             <div class="col-md-12">
                                 <label class="labels">Name User</label>
-                                <input type="text" class="form-control" placeholder="Enter Name" id="name" name="name"
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Enter Name" id="name" name="name"
                                     value="{{ $user->name }}" required>
+                                @error('name')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
                             <div class="col-md-12 mt-3">
                                 <label class="labels">Email ID</label>
-                                <input type="text" class="form-control" placeholder="Enter email" id="email" name="email"
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Enter email" id="email" name="email"
                                     value="{{ $user->email }}" required>
+                                @error('email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
                             <div class="col-md-12 mt-3">
                                 <label class="labels">Profil Picture</label>
-                            <input type="file" accept="image/jpeg" class="form-control" name="gambar" required>
+                                <input class="@error('gambar') is-invalid @enderror" type="file" accept="image/jpeg" class="form-control" name="image" id="image" >
+                                @error('image')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
                             <div class="col-md-12 mt-3">
                                 <label class="labels">Change Password</label>
-                                <input type="password" class="form-control" placeholder="Enter password" id="password"
-                                name="password" required>
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Enter password" id="password"
+                                name="password">
+                                @error('password')
+                                <div class="invalid-feedback">
+                                    Password minimal 6 karakter terdiri dari huruf besar, kecil, angka, dan simbol
+                                </div>
+                                @enderror
                             </div>
                         </div>
 
@@ -53,7 +74,7 @@
                 </div>
 
                 <div class="d-grid gap-2 col-md-3 mt-3">
-                    <a class="btn btn-warning" href="./dashboardPage.php" role="button"
+                    <a class="btn btn-warning" href="/dashboard" role="button"
                         style="background-color:#ff4e44;">Cancel
                         Update</a>
                 </div>

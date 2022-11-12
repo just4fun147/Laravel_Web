@@ -40,7 +40,7 @@
             </tr>
             <tr>
                 <td>
-                    <input type="file" accept="image/jpeg" class="form-control mt-2 mb-2 @error('gambar') is-invalid @enderror" id="gambar" name="gambar" required value="{{ asset('storage/'.$buku->gambar) }}" onchange="changeImage()">
+                    <input type="file" accept="image/jpeg" class="form-control mt-2 mb-2 @error('gambar') is-invalid @enderror" id="gambar" name="gambar" value="{{ asset('storage/'.$buku->gambar) }}" onchange="changeImage()">
                 </td>
                 @error('gambar')
                 <div class="invalid-feedback">
@@ -62,7 +62,7 @@
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
-                 @enderror
+                @enderror
             </tr>
             <tr>
                 <td>

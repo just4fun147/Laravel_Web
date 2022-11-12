@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 Route::resource('/feedback', \App\Http\Controllers\FeedbackController::class);
 Route::resource('/movie', \App\Http\Controllers\MovieController::class);
 Route::resource('/buku', \App\Http\Controllers\BukuController::class);
+Route::resource('/dashboard', \App\Http\Controllers\DashboardController::class);
+Route::resource('/user', \App\Http\Controllers\UserController::class);
 Route::resource('/majalah', \App\Http\Controllers\MajalahController::class);
 Route::resource('/perpus', \App\Http\Controllers\PerpusController::class)->middleware('guest');
 Route::resource('/register', \App\Http\Controllers\RegisterController::class)->middleware('guest');
@@ -27,7 +29,7 @@ Route::controller(\App\Http\Controllers\DashboardController::class)->group(funct
     Route::get('/listPeminjaman', 'listPeminjaman');
     Route::get('/listPembelianMajalah', 'listPembelianMajalah');
     Route::get('/listMajalah', 'listMajalah');
-    Route::get('/profile', 'profile');
+    Route::get('/profile', 'profile'); 
 });
 
 Route::controller(\App\Http\Controllers\LoginController::class)->group(function () {

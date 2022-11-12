@@ -51,11 +51,14 @@ class BukuController extends Controller
      }
 
      public function update(Request $request, $id){
-      $request->file('gambar')->store('buku-images', 'public');
+      if($request->file('gambar')){
+         $request->file('gambar')->store('buku-images', 'public');
+      }
+      
         $this->validate($request, [ 
          'judul' => 'required',
          'jumlah' => 'required',
-         'gambar' => 'required|image|file|max:2048|mimes:jpg,png,jpeg',
+         'gambar' => 'image|file|max:2048|mimes:jpg,png,jpeg',
         ]); 
         
         $temp = Buku::find($id);
