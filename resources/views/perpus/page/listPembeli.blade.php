@@ -22,24 +22,21 @@
         </thead>
         <tbody>
             @forelse ($pembelian as $item)
-            <?php
-                $majalahs = DB::table('majalahs')->where('id',$item->majalah_id)->pluck("judul");
-                $pembelis = DB::table('users')->where('id', $item->pembeli_id)->pluck('name'); 
-                    
-            ?> 
+            @php
+                $no++;
+            @endphp
             <tr> 
                 <th scope="row">{{ $no }}</th>
                 @foreach ($pembelis as $pembeli)
-                    <td>{{ $pembeli }}</td>
-                @endforeach 
-                @foreach ($majalahs as $majalah)
-                    <td>{{ $majalah }}</td>
+                    @foreach ($majalahs as $majalah)
+                        @if($item->pembeli_id == $pembeli->id && $item->majalah_id == $majalah->id)
+                            <td>{{ $pembeli->name }}</td>
+                            <td>{{ $majalah->judul }}</td>
+                        @endif
+                    @endforeach
                 @endforeach 
                 <td>{{ $item->status }}</td>
             </tr>
-                <?php
-                    $no++;
-                ?>
             @empty
                 <tr> 
                     <td colspan="7"> Belum Ada Pembeli </td> 

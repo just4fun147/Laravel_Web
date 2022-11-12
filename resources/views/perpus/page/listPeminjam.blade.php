@@ -23,23 +23,23 @@
         </thead>
         <tbody>
             @forelse($peminjaman as $item)
-                @foreach($peminjams as $p)
-                    @foreach($buku as $b)
-                        @if($item->peminjam_id=$p->id)
-                            @if($item->buku_id=$b->id)
-                                <tr>
-                                    <th scope="row">{{ $no }}</th> 
-                                    <td>{{ $p->name }}</td>
-                                    <td>{{ $b->judul }}</td>
-                                    <td>{{ $item->pengembalian }}</td>
-                                </tr> 
-                            @endif
-                        @endif
-                    @endforeach
-                @endforeach
                 @php
-                $no++;
+                    $no++;
                 @endphp
+                <tr>
+                    <tr>
+                        <th scope="row">{{ $no }}</th> 
+                        @foreach($peminjam as $p)
+                            @foreach($buku as $b)
+                                @if($item->buku_id == $b->id && $item->peminjam_id == $p->id)
+                                 <td>{{ $b->judul }}</td>
+                                    <td>{{ $p->name }}</td>
+                                @endif
+                            @endforeach
+                        @endforeach
+                        <td>{{ $item->pengembalian }}</td>
+                    </tr>
+                </tr>
             @empty
                 <tr> 
                     <td colspan="7"> Belum Ada Peminjam </td> 

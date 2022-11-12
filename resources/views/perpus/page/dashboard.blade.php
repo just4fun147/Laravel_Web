@@ -7,7 +7,7 @@
 <div class="container p-3 m-4 h-100 shadow-lg"
     style="background-color: #FFFFFF; border-top: 5px solid #Ff4e44; boxshadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
     <h4>Selamat Datang di Perpustakaan Jalur Literasi</h4>
-    <hr>';
+    <hr>
     @if($user->name == "admin")
         <div class="row d-flex justify-content-center">
             <div class="col">

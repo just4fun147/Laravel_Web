@@ -1,12 +1,4 @@
 @include('perpus.partials.sidebar')
-<?php
-use App\Models\buku;
-    $name = auth()->user()->name;
-    $id = auth()->user()->id;
-    $no=1;
-    $peminjaman = DB::table('peminjamen')->where('peminjam_id',$id)->get();
-    
-?>
 
 <head>
     <title>List Peminjaman Buku</title>
@@ -34,46 +26,34 @@ use App\Models\buku;
             </tr>
         </thead>
         <tbody>
-            <!--
-            
-                while ($data = mysqli_fetch_assoc($query)) {
-                    $id=$data['buku_id'];
-                    $query2 = mysqli_query($con, "SELECT * FROM buku WHERE id='$id'") or
-                    die(mysqli_error($con));
-                    if(mysqli_num_rows($query2)!=0){
-                        $buku = mysqli_fetch_assoc($query2);
-                        $date = $data['pengembalian'];
-                        echo ' -->
-                        @forelse($peminjaman as $item)
-                            <?php
-                            $buku = Buku::find($item->buku_id);
-                            ?>
-                                <tr> 
-                                <th scope="row">{{ $no }}</th>
-                                <td>{{ $buku->judul }}</td> 
-                                <td><img src="{{ asset('storage/'.$buku->gambar) }}" style="width:150px"></td> 
-                                <td>{{ $item->status }}</td> 
-                                <td>{{ $item->pengembalian }}</td> 
-                                <td>
-                                <?php
-                                    if($item->status=="Dipinjam"){
-                                        ?>
-                                        <form action="/balik" method="post" onSubmit="confirm( \'Apakah ingin mengembalikan buku ini? \')">
-                                            <input type="text" id="id" name="id" value="{{ $item->id }}" hidden/>
-                                            @csrf
-                                        <?php
-                                            echo'
-                                            <button type="submit" style="border: 0; background-color: transparent;">
-                                                    <a> <i style="color: blue" class="fa fa-refresh fa-2x"></i></a>
-                                                </button>
-                                            </form>
-                                            </td>';
-                                }
-                                ?>
-                           
-                    @empty
-                    <p>Belum ada peminjaman</p>
-                    @endforelse
+            @forelse($peminjaman as $item)
+                @php
+                    $no++;
+                @endphp
+                @foreach ($bukus as $buku)
+                    @if($buku->id == $item->buku_id)
+                        <tr> 
+                            <th scope="row">{{ $no }}</th>
+                            <td>{{ $buku->judul }}</td> 
+                            <td><img src="{{ asset('storage/'.$buku->gambar) }}" style="width:150px"></td> 
+                            <td>{{ $item->status }}</td> 
+                            <td>{{ $item->pengembalian }}</td> 
+                            <td>
+                                @if($item->status=="Dipinjam")
+                                    <form action="/balik" method="post" onSubmit="confirm( \'Apakah ingin mengembalikan buku ini? \')">
+                                        <input type="text" id="id" name="id" value="{{ $item->id }}" hidden/>
+                                        @csrf
+                                        <button type="submit" style="border: 0; background-color: transparent;">
+                                            <a> <i style="color: blue" class="fa fa-refresh fa-2x"></i></a>
+                                        </button>
+                                    </form>   
+                                @endif
+                            </td>
+                    @endif
+                @endforeach
+            @empty
+                <td colspan="7">Belum ada peminjaman</td>
+             @endforelse
         </tbody>
     </table>
 </div>

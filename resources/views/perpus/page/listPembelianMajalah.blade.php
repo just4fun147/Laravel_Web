@@ -1,11 +1,4 @@
 @include('perpus.partials.sidebar')
-<?php
-    $name = auth()->user()->name;
-    $id = auth()->user()->id;
-    $no=1;
-    $pembelian = DB::table('pembelians')->where('pembeli_id',$id)->get();
-    
-?>
 
 <head>
     <title>List Pembelian Majalah</title>
@@ -28,38 +21,30 @@
                 <th scope="col">Topik</th>
                 <th scope="col">Jumlah Halaman</th>
                 <th scope="col">Harga</th>
-                <th scope="col">Status</th>
-                <?php 
-                    if($name!="admin") {
-                        echo'
-                            <th scope="col">Bayar</th>
-                            <th scope="col">Batal</th>
-                        ';
-                    }
-                ?>
+                <th scope="col">Status</th> 
+                @if($user->name!="admin") 
+                    <th scope="col">Bayar</th>
+                    <th scope="col">Batal</th>
+                @endif
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
             @forelse ($pembelian as $item) 
-            <?php
-            $majalahs = DB::table('majalahs')->where('id',$item->majalah_id)->get();
-            ?>
-            @foreach($majalahs as $majalah)
-                            <tr> 
+                @foreach($majalahs as $majalah)
+                    @if($item->majalh_id = $majalah->id)
+                        <tr> 
                             <th scope="row">{{ $no }}</th> 
                             <td>{{ $majalah->judul }}</td>  
                             <td>{{ $majalah->topik }}</td>  
                             <td>{{ $majalah->jumlah_halaman }}</td>  
                             <td>{{ $majalah->harga }}</td>  
                             <td>{{ $item->status }}</td>
-                                <?php
-                                if($item->status!="Lunas"){
-                                    ?>
-                                    <td>
+                            @if($item->status!="Lunas")
+                                <td>
                                     <form action="/bayar" method="post">
-                                    <input type="text" id="id" name="id" value="{{ $item->id }}" hidden/>
-                                    @csrf
+                                        <input type="text" id="id" name="id" value="{{ $item->id }}" hidden/>
+                                        @csrf
                                         <button type="submit" style="border: 0; background-color: transparent;">
                                             <a> <i style="color: green" class="fa fa-money fa-2x"></i></a>
                                         </button>
@@ -74,46 +59,18 @@
                                             </button>
                                         </form>
                                     </td>
-                                    <?php
-                                }else{
-                                    echo'
+                                @else
                                     <td></td>
-                                    <td></td>';
-                                }
-                                ?>
-            @endforeach
+                                    <td></td>
+                                @endif
+                        </tr>
+                    @endif
+                @endforeach
             @empty
             <tr> 
                 <td colspan="7"> Tidak ada buku </td> 
             </tr>
             @endforelse
-                   <!--         if($name!="admin") {
-                                if($data['status']!="Sudah Dibayar"){
-                                    echo '
-                                <td>
-                                    <a href="../process/bayarMajalahProcess.php?id=' . $data['id'] . '"> <i style="color: green" class="fa fa-money fa-2x"></i> 
-                                </td>
-                                <td>
-                                    <a href="../process/batalMajalahProcess.php?id=' . $data['id'] . '"> <i style="color: red" class="fa fa-times fa-2x"></i> 
-                                </td>';
-                                }else{
-                                    <td></td>
-                                    <td></td>
-                                }
-                            }
-                        
-                             </tr>';
-                    }else{
-                        <tr> 
-                            <th scope="row"> $no </th> 
-                            <td>Majalah Sudah Dihapus</td>  
-                            <td></td>  
-                            <td></td>  
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                    } -->
         </tbody>
     </table>
 </div>

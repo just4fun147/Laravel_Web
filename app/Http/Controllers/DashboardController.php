@@ -41,35 +41,43 @@ class DashboardController extends Controller
     public function listPeminjam(){
         $peminjaman = Peminjaman::paginate(10);
         $user = auth()->user();
-        $no = 1;
+        $no = 0;
         $buku = Buku::all();
-        $peminjams = User::all(); 
-        return view('perpus.page.listPeminjam', compact('peminjaman','user','no','buku','peminjams'), [
+        $peminjam = User::all();
+        return view('perpus.page.listPeminjam', compact('peminjaman','user','no','buku','peminjam'), [
             'title' => 'List Peminjam',
             'active' => 'List Peminjam'
         ]);
     }
     public function listPembeli(){
         $pembelian = Pembelian::paginate(10);
-        $name = auth()->user()->name;
-        $no=1;
-        return view('perpus.page.listPembeli',compact('pembelian','user','no'), [
+        $user = auth()->user();
+        $no=0;
+        $majalahs = Majalah::all();
+        $pembelis = User::all(); 
+        return view('perpus.page.listPembeli',compact('pembelian','user','no','majalahs','pembelis'), [
             'title' => 'List Pembeli',
             'active' => 'List Pembeli'
         ]);
     }
 
     public function listPeminjaman(){
-        $peminjaman = Peminjaman::paginate(10);
-        return view('perpus.page.listPeminjaman', compact('peminjaman'), [
+        $user = auth()->user();
+        $no=0;
+        $peminjaman = Peminjaman::where('peminjam_id',$user->id)->paginate(10);
+        $bukus = Buku::all();
+        return view('perpus.page.listPeminjaman', compact('peminjaman','user','no','bukus'), [
             'title' => 'List Peminjaman',
             'active' => 'List Peminjaman'
         ]);
     }
 
     public function listPembelianMajalah(){
-        
-        return view('perpus.page.listPembelianMajalah', [
+        $user = auth()->user();
+        $no=1;
+        $pembelian = Pembelian::where('pembeli_id',$user->id)->paginate(10);
+        $majalahs = Majalah::all();
+        return view('perpus.page.listPembelianMajalah', compact('user','no','pembelian','majalahs'), [
             'title' => 'List Pembelian Majalah',
             'active' => 'List Pembelian Majalah'
         ]);
@@ -77,8 +85,9 @@ class DashboardController extends Controller
 
     public function listMajalah(){
         $majalah = Majalah::paginate(10);
-
-        return view('perpus.page.listMajalah', compact('majalah'), [
+        $user = auth()->user();
+        $no=1;
+        return view('perpus.page.listMajalah', compact('majalah','no','user'), [
             'title' => 'List Majalah',
             'active' => 'List Majalah'
         ]);
