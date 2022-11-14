@@ -48,6 +48,7 @@
                             </div>
                             <div class="col-md-12 mt-3">
                                 <label class="labels">Profil Picture</label>
+                                <input type="hidden" name="oldImage" value="{{ $user->image }}">
                                 <input class="@error('image') is-invalid @enderror" type="file" accept="image/jpeg" class="form-control" name="image" id="image" value="{{ $user->image }}" onchange="previewImage()">
                                 @error('image')
                                 <div class="invalid-feedback">

@@ -96,6 +96,9 @@
         </a>
       </div>
     </div>
+    <div class="contact">
+      <p class="cont" style="cursor: pointer;" onclick="about()">About Me>>></p>
+    </div>
 @endsection
 
 

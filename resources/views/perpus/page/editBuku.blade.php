@@ -40,6 +40,7 @@
             </tr>
             <tr>
                 <td>
+                    <input type="hidden" name="oldImage" value="{{ $buku->gambar }}">
                     <input type="file" accept="image/jpeg" class="form-control mt-2 mb-2 @error('gambar') is-invalid @enderror" id="gambar" name="gambar" value="{{ asset('storage/'.$buku->gambar) }}" onchange="changeImage()">
                 </td>
                 @error('gambar')

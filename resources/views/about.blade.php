@@ -60,6 +60,7 @@
                     <p class="desc">API</p>
                     <p class="desc">MySql Database</p>
                     <p class="desc">Vue.js</p>
+                    <p class="desc">Vuetify</p>
                     
                 </div>
                 <div class="middle3">
@@ -84,6 +85,7 @@
                     <p class="desc">Notification</p>
                     <p class="desc">Firebase</p>
                     <p class="desc">Geo Location</p>
+                    <p class="desc">Volley</p>
                 </div>
             </div>
         </div>  
@@ -108,13 +110,12 @@
             <p class="block">a</p>
             <p class="block">a</p>
             <p class="thirdAbout">Movie</p>
-            <p class="desc">Stories, the beginning of human civilization that can be presented in an interesting way. Provide value in an attractive way.<a class="ref" href="{{ route('movie.index') }}" target="_blank"><u>  I have some recommendations...</u></a></p>
+            <p class="desc">Stories, the beginning of human civilization that can be presented in an interesting way. Provide value in an attractive way. I recommend the prison break series if you haven't watched it yet.</p>
             <p class="block">a</p>
             <p class="block">a</p>
             <p class="block">a</p>
             <p class="block">a</p>
             <p class="block">a</p>
-            <!--<p class="thirdAbout"><a class="ref" href="/education" target="_blank"><u>Exploring</u></a></p> -->
             <p class="thirdAbout">Exploring</p>
             <p class="desc">Visit various places to learn culture and other perspectives to develop yourself. Indonesia with 1,340 tribes, 840 languages, and various cultures. There won't be enough time to explore everything</p>
             <p class="block">a</p>
@@ -122,6 +123,10 @@
         <div class="right5"></div>
         <div class="right5"></div>
     </div>    
+
+    <div class="contact">
+        <p class="cont" style="cursor: pointer;" onclick="work()">My Work>>></p>
+    </div>
     
 @endsection
 

@@ -95,6 +95,13 @@ function email(){
 function contact(){
   window.open('/contact');
 }
+function work(){
+  window.open('/work');
+}
+function about(){
+  window.open('/about');
+}
+
 
 
 

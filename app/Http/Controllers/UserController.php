@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -28,10 +29,14 @@ class UserController extends Controller
             ]);
             $user->password = bcrypt($request->password);
         }
+
         if( $request->hasFile('image')) {
             $this->validate($request, [ 
                 'image' => 'image|file|max:2048|mimes:jpg,png,jpeg',
             ]);
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+             }
             $path = $request->file('image')->store('user-images');
             $user->image =$path;
         }

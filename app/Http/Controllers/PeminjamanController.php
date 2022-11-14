@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\peminjaman;
 use App\Models\buku;
+use Exception;
 
 class PeminjamanController extends Controller
 {
@@ -17,30 +18,40 @@ class PeminjamanController extends Controller
     }
 
     public function pinjam(Request $request) { 
-        $date = date('Y-m-d',strtotime("+7 days"));
-        $id = auth()->user()->id;
-        Peminjaman::create([ 
-            'buku_id' => $request->id,
-            'status' => 'Dipinjam',
-            'pengembalian' => $date,
-            'peminjam_id' => $id
-         ]); 
-         $temp = Buku::find($request->id);
-         $temp->jumlah--;
-         $temp->save();
-        return redirect('/listBuku');
+        try{
+            $date = date('Y-m-d',strtotime("+7 days"));
+            $id = auth()->user()->id;
+            Peminjaman::create([ 
+                'buku_id' => $request->id,
+                'status' => 'Dipinjam',
+                'pengembalian' => $date,
+                'peminjam_id' => $id
+            ]); 
+            $temp = Buku::find($request->id);
+            $temp->jumlah--;
+            $temp->save();
+            return redirect('/listBuku')->with('message','Peminjaman Success');
+        }catch(Exception $e){
+            return redirect('/listBuku')->with('error','Peminjaman Fail');
+        }
+        
     }
 
     public function balik(Request $request) { 
-        $date = date('Y-m-d');
-        $temp = Peminjaman::find($request->id);
-        $buku = Buku::find($temp->buku_id);
-        $temp->status = 'Dikembalikan';
-        $temp->pengembalian = $date;
-        $temp->save();
+        try{
+            $date = date('Y-m-d');
+            $temp = Peminjaman::find($request->id);
+            $buku = Buku::find($temp->buku_id);
+            $temp->status = 'Dikembalikan';
+            $temp->pengembalian = $date;
+            $temp->save();
 
-        $buku->jumlah++;
-        $buku->save();
-        return redirect('/listPeminjaman');
+            $buku->jumlah++;
+            $buku->save();
+            return redirect('/listPeminjaman')->with('message','Pengembalian success');
+        }catch(Exception $e){
+            return redirect('/listPeminjaman')->with('error','Pengembalian Fail');
+        }
+        
     }
 }

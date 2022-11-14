@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Buku;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Exception;
 
 class BukuController extends Controller
 {
@@ -29,48 +31,68 @@ class BukuController extends Controller
      } 
 
      public function destroy($id) { 
-        Buku::destroy($id);
-        return redirect('/listBuku')->with('message','Delete Buku success');
+      
+      try{
+         $temp = Buku::find($id);
+         Storage::delete($temp->gambar);
+         Buku::destroy($id);
+         return redirect('/listBuku')->with('info','Delete Buku Success');
+      }catch(Exception $e){
+         return redirect('/listBuku')->with('error','Delete Buku Fail');
+      }
+        
      } 
 
      public function store(Request $request) { 
       $request->file('gambar')->store('buku-images', 'public');
-        $validatedData = $request->validate([
-               'judul' => 'required',
-               'jumlah' => 'required',
-               'gambar' => 'required|image|file|max:2048|mimes:jpg,png,jpeg',
+      try{
+         $validatedData = $request->validate([
+            'judul' => 'required',
+            'jumlah' => 'required',
+            'gambar' => 'required|image|file|max:2048|mimes:jpg,png,jpeg',
          ]);
 
          // ensure the request has a file before we attempt anything else.
          if( $request->hasFile('gambar')) {
             $path = $request->file('gambar')->store('buku-images');
             $validatedData['gambar'] =$path;
-        }
+         }
          Buku::create($validatedData);
-        return redirect('/listBuku');
+         return redirect('/listBuku')->with('message','Add Buku Success');
+      }catch(Exception $e){ 
+         return redirect('/listBuku')->with('error','Add Buku Fail');
+        } 
+        
      }
 
      public function update(Request $request, $id){
-      if($request->file('gambar')){
-         $request->file('gambar')->store('buku-images', 'public');
-      }
-      
-        $this->validate($request, [ 
-         'judul' => 'required',
-         'jumlah' => 'required',
-         'gambar' => 'image|file|max:2048|mimes:jpg,png,jpeg',
-        ]); 
-        
-        $temp = Buku::find($id);
-        $temp->judul = $request->judul;
-        $temp->jumlah = $request->jumlah;
-        if( $request->hasFile('gambar')) {
-         $path = $request->file('gambar')->store('buku-images');
+      try{
+         if($request->file('gambar')){
+            if($request->oldImage){
+               Storage::delete($request->oldImage);
+            }
+            $request->file('gambar')->store('buku-images', 'public');
+         }
+         
+         $this->validate($request, [ 
+            'judul' => 'required',
+            'jumlah' => 'required',
+            'gambar' => 'image|file|max:2048|mimes:jpg,png,jpeg',
+         ]); 
+           
+         $temp = Buku::find($id);
+         $temp->judul = $request->judul;
+         $temp->jumlah = $request->jumlah;
+         if( $request->hasFile('gambar')) {
+            $path = $request->file('gambar')->store('buku-images');
             $temp->gambar = $path;
          }
-        
-        $temp->save();
-        return redirect('/listBuku')->with('message','Edit Buku success');
+           
+         $temp->save();
+         return redirect('/listBuku')->with('message','Edit Buku Success');
+      }catch(Exception $e){
+         return redirect('/listBuku')->with('error','Edit Buku Fail');
+      }
      }
 
      

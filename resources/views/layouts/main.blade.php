@@ -31,32 +31,6 @@
     </div>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script defer src="/js/script.js"></script>
-    <script>
-      @if(Session::has('message'))
-        toastr.options =
-        {
-          "closeButton" : true,
-          "progressBar" : true
-        }
-            toastr.success("{{ session('message') }}");
-      @endif
-
-      @if(Session::has('error'))
-        toastr.options =
-        {
-          "closeButton" : true,
-          "progressBar" : true
-        }
-            toastr.error("{{ session('error') }}");
-      @endif
-      @if(Session::has('info'))
-        toastr.options =
-        {
-          "closeButton" : true,
-          "progressBar" : true
-        }
-            toastr.info("{{ session('info') }}");
-      @endif
-    </script>
+    
   </body>
 </html>
