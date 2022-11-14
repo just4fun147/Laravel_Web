@@ -93,13 +93,13 @@ function email(){
 }
 
 function contact(){
-  window.open('/contact');
+  window.open('/contact','_self');
 }
 function work(){
-  window.open('/work');
+  window.open('/work','_self');
 }
 function about(){
-  window.open('/about');
+  window.open('/about','_self');
 }
 
 

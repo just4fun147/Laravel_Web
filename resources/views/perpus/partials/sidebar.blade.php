@@ -201,3 +201,4 @@
                           toastr.info("{{ session('info') }}");
                     @endif
                   </script>
+                  <script defer src="/js/scriptPerpus.js"></script>

@@ -32,8 +32,8 @@
                         @foreach($peminjam as $p)
                             @foreach($buku as $b)
                                 @if($item->buku_id == $b->id && $item->peminjam_id == $p->id)
-                                 <td>{{ $b->judul }}</td>
-                                    <td>{{ $p->name }}</td>
+                                <td>{{ $p->name }}</td>
+                                <td>{{ $b->judul }}</td>    
                                 @endif
                             @endforeach
                         @endforeach

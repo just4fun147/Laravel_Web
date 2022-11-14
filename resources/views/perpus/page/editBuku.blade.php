@@ -80,21 +80,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
 </script>
-<script>
-    function changeImage(){
-        const image = document.querySelector('#gambar');
-        const preview = document.querySelector('.img-preview');
-
-        preview.style.display = 'block';
-        
-        const ofReader = new FileReader();
-        ofReader.readAsDataURL(image.files[0]);
-        ofReader.onload = function(oFREvent){
-            preview.src=oFREvent.target.result;
-        } 
-    }
-    
-</script>
+<script defer src="/js/scriptPerpus.js"></script>
 </body>
 
 </html>
