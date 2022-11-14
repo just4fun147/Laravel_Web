@@ -36,9 +36,9 @@ class BukuController extends Controller
          $temp = Buku::find($id);
          Storage::delete($temp->gambar);
          Buku::destroy($id);
-         return redirect('/listBuku')->with('info','Delete Buku Success');
+         return redirect('/listBuku')->with('info','Berhasil Menghapus Buku');
       }catch(Exception $e){
-         return redirect('/listBuku')->with('error','Delete Buku Fail');
+         return redirect('/listBuku')->with('error','Gagal Menghapus Buku');
       }
         
      } 
@@ -58,9 +58,9 @@ class BukuController extends Controller
             $validatedData['gambar'] =$path;
          }
          Buku::create($validatedData);
-         return redirect('/listBuku')->with('message','Add Buku Success');
+         return redirect('/listBuku')->with('message','Berhasil Menambahkan Buku');
       }catch(Exception $e){ 
-         return redirect('/listBuku')->with('error','Add Buku Fail');
+         return redirect('/listBuku')->with('error','Gagal Menambahkan Buku');
         } 
         
      }
@@ -89,9 +89,9 @@ class BukuController extends Controller
          }
            
          $temp->save();
-         return redirect('/listBuku')->with('message','Edit Buku Success');
+         return redirect('/listBuku')->with('message','Berhasil Mengedit Buku');
       }catch(Exception $e){
-         return redirect('/listBuku')->with('error','Edit Buku Fail');
+         return redirect('/listBuku')->with('error','Gagal Mengedit Buku');
       }
      }
 

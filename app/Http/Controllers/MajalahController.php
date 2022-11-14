@@ -31,9 +31,9 @@ class MajalahController extends Controller
      public function destroy($id) { 
       try{
          Majalah::destroy($id);
-         return redirect('/listMajalah')->with('info','Delete Majalah Success');
+         return redirect('/listMajalah')->with('info','Berhasil Menghapus Majalah');
       }catch(Exception $e){
-         return redirect('/listMajalah')->with('error','Delete Majalah Fail');
+         return redirect('/listMajalah')->with('error','Gagal Menghapus Majalah');
       }
      } 
 
@@ -54,9 +54,9 @@ class MajalahController extends Controller
             'harga' => $request->harga
          ]); 
             
-         return redirect('/listMajalah')->with('message','Add Majalah success');
+         return redirect('/listMajalah')->with('message','Berhasil Menambahkan Majalah');
         }catch(Exception $e){ 
-         return redirect('/listMajalah')->with('error','Add Majalah Fail');
+         return redirect('/listMajalah')->with('error','Gagal Menambahkan Majalah');
         } 
      }
 
@@ -74,9 +74,9 @@ class MajalahController extends Controller
            $temp->jumlah_halaman = $request->jumlah_halaman;
            $temp->harga = $request->harga;
            $temp->save();
-           return redirect('/listMajalah')->with('message','Edit Majalah success');
+           return redirect('/listMajalah')->with('message','Berhasil Mengedit Majalah');
       }catch(Exception $e){ 
-         return redirect('/listMajalah')->with('error','Edit Majalah Fail');
+         return redirect('/listMajalah')->with('error','Gagal Mengedit Majalah');
         } 
         
      }

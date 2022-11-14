@@ -17,9 +17,9 @@ class PembelianController extends Controller
                 'status' => 'Dipesan',
                 'pembeli_id' => $id
             ]); 
-            return redirect('/listMajalah')->with('message','Pemesanan Success');
+            return redirect('/listMajalah')->with('message','Pemesanan Sukses');
         }catch(Exception $e){
-            return redirect('/listMajalah')->with('error','Pemesanan Fail');
+            return redirect('/listMajalah')->with('error','Pemesanan Gagal');
         }
         
     }
@@ -28,18 +28,18 @@ class PembelianController extends Controller
             $temp = Pembelian::find($request->id);
             $temp->status = 'Lunas';
             $temp->save();
-            return redirect('/listPembelianMajalah')->with('message','Pembayaran Success');
+            return redirect('/listPembelianMajalah')->with('message','Pembayaran Sukses');
         }catch(Exception $e){
-            return redirect('/listPembelianMajalah')->with('error','Pembayaran Fail');
+            return redirect('/listPembelianMajalah')->with('error','Pembayaran Gagal');
         }
         
     }
     public function batal(Request $request) {
         try{
             Pembelian::destroy($request->id);
-            return redirect('/listPembelianMajalah')->with('message', 'Pembatalan Success');
+            return redirect('/listPembelianMajalah')->with('message', 'Pembatalan Sukses');
         }catch(Exception $e){
-            return redirect('/listPembelianMajalah')->with('message', 'Pembatalan Fail');
+            return redirect('/listPembelianMajalah')->with('message', 'Pembatalan Gagal');
         }
         
     }

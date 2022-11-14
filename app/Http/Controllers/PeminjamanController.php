@@ -30,9 +30,9 @@ class PeminjamanController extends Controller
             $temp = Buku::find($request->id);
             $temp->jumlah--;
             $temp->save();
-            return redirect('/listBuku')->with('message','Peminjaman Success');
+            return redirect('/listBuku')->with('message','Peminjaman Sukses');
         }catch(Exception $e){
-            return redirect('/listBuku')->with('error','Peminjaman Fail');
+            return redirect('/listBuku')->with('error','Peminjaman Gagal');
         }
         
     }
@@ -48,9 +48,9 @@ class PeminjamanController extends Controller
 
             $buku->jumlah++;
             $buku->save();
-            return redirect('/listPeminjaman')->with('message','Pengembalian success');
+            return redirect('/listPeminjaman')->with('message','Pengembalian Sukses');
         }catch(Exception $e){
-            return redirect('/listPeminjaman')->with('error','Pengembalian Fail');
+            return redirect('/listPeminjaman')->with('error','Pengembalian Gagal');
         }
         
     }
