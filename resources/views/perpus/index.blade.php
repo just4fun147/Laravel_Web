@@ -6,10 +6,10 @@
             <div class="mt-5 shadow-lg p-2 bg-dark rounded">
                 <h1 class="text-center align-middle text-white">
                     <b class=""> Selamat Datang di Perpustakaan Jalur Literasi</b>
-                    <p>Maaf beberapa fitur tidak dapat diakses dikarenakan menggunakan hosting dan database free.</p>
-                    <p>Untuk pengalaman lebih baik, silahkan download source code di github saya</p>
                 </h1>
                 <p class="align-middle text-white"> Menciptakan Generasi Literat Melalui Perpustakaan</p>
+                <p>*Maaf beberapa fitur tidak dapat diakses dikarenakan menggunakan hosting dan database free.</p>
+                <p>Untuk pengalaman lebih baik, silahkan download source code di github saya</p>
             </div>
         </div>
     </div>
