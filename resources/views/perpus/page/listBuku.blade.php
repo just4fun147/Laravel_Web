@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div class="body d-flex justify-content-between">
         <h4 style="flex: 1 1 50%">LIST BUKU</h4>
+        <h5>Maaf gambar tidak dapat ditampilkan karena menggunakan github sehingga tidak dapat menyimpan gambar pada storage laravel </h5>
         @if($user->name =="admin")
             <form action="{{ route('buku.create')}}" method="GET">  
                 <button type="submit" style="border: 0; background-color: transparent;">
