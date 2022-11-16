@@ -8,8 +8,8 @@
                     <b class=""> Selamat Datang di Perpustakaan Jalur Literasi</b>
                 </h1>
                 <p class="align-middle text-white"> Menciptakan Generasi Literat Melalui Perpustakaan</p>
-                <p>*Maaf beberapa fitur tidak dapat diakses dikarenakan menggunakan hosting dan database free.</p>
-                <p>Untuk pengalaman lebih baik, silahkan download source code di github saya</p>
+                <p style="font-size:13px;color: white">*Maaf beberapa fitur tidak dapat diakses dikarenakan menggunakan hosting dan database free.</p>
+                <p style="font-size:13px;color: white">Untuk pengalaman lebih baik, silahkan download source code di github saya</p>
             </div>
         </div>
     </div>
