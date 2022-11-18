@@ -89,6 +89,18 @@
         <p class="block">a</p>
         <p class="blocks">a</p>
         <p class="blocks">a</p>
+        <hr>
+        <div class="left5">
+          <img src="img/vuetifiy.png" alt="" width="500">
+        </div>
+        <div class="right6">
+          <p id="title">Todo List with Vuetify-vuecli</p>
+          <p class="descss"><a class="ref" href="https://gentle-kheer-f31329.netlify.app/" target="_blank"><u> Simple Todo List with vuetify-vuecli.</u></a></p>
+        </div>
+        <p class="block">a</p>
+        <p class="block">a</p>
+        <p class="blocks">a</p>
+        <p class="blocks">a</p>
         <p class="blocks">a</p>
         <hr>
     </div>
